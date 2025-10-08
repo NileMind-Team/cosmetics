@@ -1,32 +1,25 @@
 import { useEffect, useState } from 'react';
 import { Menu, X, Sun, Moon, Globe } from 'lucide-react';
-import logo from '../assets/logo.png';
+import logoLight from '../assets/logo.png'; // اللوجو الأصلي للايت مود
+import logoDark from '../assets/logodark.png'; // اللوجو الجديد للدارك مود
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ lang, setLang }) => {
-  const [darkMode, setDarkMode] = useState(() => {
-    const savedMode = localStorage.getItem('darkMode');
-    return savedMode === 'true';
-  });
+  const [darkMode, setDarkMode] = useState(() => localStorage.getItem('darkMode') === 'true');
   const [menuOpen, setMenuOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // ضبط اللغة والاتجاه على مستوى المستند
   useEffect(() => {
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
   }, [lang]);
 
-  // ضبط الوضع الليلي
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    if (darkMode) document.documentElement.classList.add('dark');
+    else document.documentElement.classList.remove('dark');
     localStorage.setItem('darkMode', darkMode);
   }, [darkMode]);
 
-  // غلق المينيو عند تغيير حجم الشاشة
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768 && menuOpen) {
@@ -38,9 +31,7 @@ const Navbar = ({ lang, setLang }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, [menuOpen]);
 
-  // تغيير اللغة
   const toggleLang = () => setLang(lang === 'en' ? 'ar' : 'en');
-
   const toggleMenu = () => {
     if (menuOpen) {
       setIsAnimating(true);
@@ -56,13 +47,14 @@ const Navbar = ({ lang, setLang }) => {
     ar: ['الرئيسية', 'من نحن', 'المشاريع', 'الخدمات', 'تواصل معنا'],
   };
 
+  const navLinksPaths = ['/', '/about', '/projects', '/services', '/contact'];
+
   return (
     <header className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white fixed w-full top-0 left-0 z-50 shadow-[0_4px_12px_rgba(0,86,179,0.15)] transition-colors duration-300">
       <div className="container mx-auto px-3 py-1 flex items-center justify-between h-14 md:h-16">
-        {/* Logo */}
         <div className={`flex items-center ${lang === 'ar' ? 'justify-end' : 'justify-start'}`}>
           <img
-            src={logo}
+            src={darkMode ? logoDark : logoLight} // استخدام لوجو مختلف حسب المود
             alt="Saaed Wafi Logo"
             className="w-28 object-contain cursor-pointer hover:scale-105 transition-transform duration-300"
           />
@@ -71,14 +63,14 @@ const Navbar = ({ lang, setLang }) => {
         {/* Desktop Links */}
         <nav className="hidden md:flex space-x-4 rtl:space-x-reverse text-sm">
           {navLinks[lang].map((link, index) => (
-            <a
+            <Link
               key={index}
-              href="#"
-              className="text-[#0056B3] hover:text-[#FF7A00] transition-all duration-300 font-medium relative group"
+              to={navLinksPaths[index]}
+              className="text-[#0056B3] dark:text-white hover:text-[#FF7A00] transition-all duration-300 font-medium relative group"
             >
               {link}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF7A00] transition-all duration-300 group-hover:w-full"></span>
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -88,11 +80,7 @@ const Navbar = ({ lang, setLang }) => {
             onClick={() => setDarkMode(!darkMode)}
             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200"
           >
-            {darkMode ? (
-              <Sun size={18} className="text-[#FF7A00]" />
-            ) : (
-              <Moon size={18} className="text-[#FF7A00]" />
-            )}
+            {darkMode ? <Sun size={18} className="text-[#FF7A00]" /> : <Moon size={18} className="text-[#FF7A00]" />}
           </button>
 
           <button
@@ -130,16 +118,16 @@ const Navbar = ({ lang, setLang }) => {
           >
             <div className="flex flex-col space-y-2 w-full mt-4">
               {navLinks[lang].map((link, index) => (
-                <a
+                <Link
                   key={index}
-                  href="#"
+                  to={navLinksPaths[index]}
                   style={{ transitionDelay: `${index * 80}ms` }}
-                  className="text-[#0056B3] dark:text-blue-300 hover:text-[#FF7A00] transition-all duration-500 font-medium text-base py-3 px-2 relative group"
+                  className="text-[#0056B3] dark:text-white hover:text-[#FF7A00] transition-all duration-500 font-medium text-base py-3 px-2 relative group"
                   onClick={toggleMenu}
                 >
                   {link}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF7A00] transition-all duration-500 group-hover:w-full"></span>
-                </a>
+                </Link>
               ))}
             </div>
 
@@ -148,11 +136,7 @@ const Navbar = ({ lang, setLang }) => {
                 onClick={() => setDarkMode(!darkMode)}
                 className="flex items-center justify-center gap-2 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300 flex-1"
               >
-                {darkMode ? (
-                  <Sun size={18} className="text-[#FF7A00]" />
-                ) : (
-                  <Moon size={18} className="text-[#FF7A00]" />
-                )}
+                {darkMode ? <Sun size={18} className="text-[#FF7A00]" /> : <Moon size={18} className="text-[#FF7A00]" />}
                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                   {darkMode ? (lang === 'en' ? 'Light' : 'فاتح') : lang === 'en' ? 'Dark' : 'داكن'}
                 </span>
