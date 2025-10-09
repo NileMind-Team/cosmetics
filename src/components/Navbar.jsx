@@ -45,7 +45,7 @@ const Navbar = ({ lang, setLang }) => {
   const handleScroll = (id) => {
     const section = document.getElementById(id);
     if (section) {
-      const headerOffset = 50; // ارتفاع الهيدر (ممكن تغيري الرقم لو عايزة)
+      const headerOffset = 45; // ارتفاع الهيدر (ممكن تغيري الرقم لو عايزة)
       const elementPosition = section.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - headerOffset;
 

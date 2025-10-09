@@ -1,98 +1,138 @@
-import React, { useEffect, useState } from "react";
-import { MessageCircle } from "lucide-react";
-import logo from "../assets/logo.png";
-import logodark from "../assets/logodark.png";
+import React from "react";
+import { Mail, MessageCircle } from "lucide-react";
+import bg from "../assets/footer.jpeg";
 
-const Footer = ({ lang }) => {
-  // نبدأ بقيمة أولية بناءً على حالة الـ <html>
-  const [isDarkMode, setIsDarkMode] = useState(
-    document.documentElement.classList.contains("dark")
-  );
+const Footer = ({ lang = "ar" }) => {
+  const whatsappNumber = "966506751303";
+  const emails = ["genralpedwi@gmail.com", "sdwr2000@gmail.com"];
 
-  useEffect(() => {
-    // نراقب التغييرات على الكلاس "dark" في <html>
-    const observer = new MutationObserver(() => {
-      setIsDarkMode(document.documentElement.classList.contains("dark"));
-    });
-    observer.observe(document.documentElement, { attributes: true });
-    return () => observer.disconnect();
-  }, []);
-
-  const footerLinks = {
-    en: ["Home", "About", "Projects", "Services", "Contact"],
-    ar: ["الرئيسية", "من نحن", "المشاريع", "الخدمات", "تواصل معنا"],
+  const quickLinks = {
+    ar: [
+      { label: "الرئيسية", href: "home" },
+      { label: "من نحن", href: "about" },
+      { label: "المشاريع", href: "projects" },
+      { label: "الخدمات", href: "services" },
+      { label: "تواصل معنا", href: "contact" },
+    ],
+    en: [
+      { label: "Home", href: "home" },
+      { label: "About", href: "about" },
+      { label: "Projects", href: "projects" },
+      { label: "Services", href: "services" },
+      { label: "Contact", href: "contact" },
+    ],
   };
 
-  const textDir = lang === "ar" ? "rtl" : "ltr";
+  // ✅ دالة لتطبيق المسافة عند السكروول
+  const handleScroll = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      const header = document.querySelector("header");
+      const headerHeight = header ? header.offsetHeight + 20 : 40;
+      const elementPosition = section.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <footer
-      className="bg-gray-200 dark:bg-gray-950 text-blue-700 dark:text-blue-300 mt-10 shadow-inner transition-colors duration-300"
-      dir={textDir}
+      className={`relative text-white ${lang === "ar" ? "text-right" : "text-left"}`}
+      dir={lang === "ar" ? "rtl" : "ltr"}
     >
-      <div className="container mx-auto px-6 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
-        {/* Logo */}
-        <div className="flex flex-col items-center md:items-start">
-          <img
-            src={isDarkMode ? logodark : logo}
-            alt="Logo"
-            className={`${
-              isDarkMode ? "w-20" : "w-16"
-            } mb-1 transition-all duration-300`}
-          />
-          <p className="text-[11px] text-blue-800 dark:text-blue-200 text-center md:text-left">
-            {lang === "en"
-              ? "Building trust and quality in every project."
-              : "نبني الثقة والجودة في كل مشروع."}
-          </p>
-        </div>
+      {/* الخلفية */}
+      <div
+        className="absolute inset-0 bg-center bg-cover"
+        style={{
+          backgroundImage: `url(${bg})`,
+          filter: "brightness(0.8) contrast(0.9)",
+        }}
+        aria-hidden="true"
+      />
 
-        {/* Quick Links */}
-        <div className="flex flex-col items-center">
-          <h3 className="font-semibold mb-1 text-[13px]">
-            {lang === "en" ? "Quick Links" : "روابط سريعة"}
-          </h3>
-          <ul className="flex flex-col items-center gap-1 text-[12px]">
-            {footerLinks[lang].map((link, index) => (
-              <li key={index}>
-                <a
-                  href="#"
-                  className="hover:underline hover:text-blue-900 dark:hover:text-blue-100 transition duration-200"
+      {/* الطبقة الغامقة */}
+      <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+
+      {/* المحتوى */}
+      <div className="relative max-w-6xl mx-auto px-6 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* الشركة */}
+          <div className="space-y-3">
+            <h3 className="text-xl font-semibold">
+              {lang === "ar" ? "سعد وافي" : "Saad Wafi"}
+            </h3>
+            <p className="text-sm text-gray-200 max-w-sm leading-relaxed">
+              {lang === "ar"
+                ? "شركة سعد وافي للمقاولات — جودة في التنفيذ، التزام في المواعيد، وخبرة طويلة في مجال البناء والتشييد."
+                : "Saad Wafi Contracting — Quality in execution, commitment to deadlines, and long experience in construction."}
+            </p>
+          </div>
+
+          {/* روابط سريعة */}
+          <div>
+            <h4 className="text-lg font-medium mb-3">
+              {lang === "ar" ? "روابط سريعة" : "Quick Links"}
+            </h4>
+            <ul className="space-y-2">
+              {quickLinks[lang].map((link) => (
+                <li
+                  key={link.label}
+                  className="cursor-pointer text-gray-200 hover:text-[#FF7A00] transition-colors text-sm"
+                  onClick={() => handleScroll(link.href)}
                 >
-                  {link}
-                </a>
-              </li>
-            ))}
-          </ul>
+                  • {link.label}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* تواصل معنا */}
+          <div>
+            <h4 className="text-lg font-medium mb-3">
+              {lang === "ar" ? "تواصل معنا" : "Contact Us"}
+            </h4>
+
+            <div className="flex items-start gap-2 mb-3">
+              <Mail className="w-5 h-5 mt-1" />
+              <div className="flex flex-col text-sm">
+                {emails.map((email) => (
+                  <a
+                    key={email}
+                    href={`mailto:${email}`}
+                    className="hover:text-[#FF7A00] transition-colors"
+                  >
+                    {email}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <MessageCircle className="w-5 h-5 text-[#25D366]" />
+              <a
+                href={`https://wa.me/${whatsappNumber}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm hover:text-[#FF7A00] transition-colors"
+              >
+                {lang === "ar"
+                  ? "واتساب: +966 50 675 1303"
+                  : "WhatsApp: +966 50 675 1303"}
+              </a>
+            </div>
+          </div>
         </div>
 
-        {/* WhatsApp Contact */}
-        <div className="flex flex-col items-center md:items-end">
-          <h3 className="font-semibold mb-1 text-[13px]">
-            {lang === "en" ? "Contact Us" : "تواصل معنا"}
-          </h3>
-          <a
-            href="https://wa.me/966506751303"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300 transition"
-          >
-            <MessageCircle className="w-4 h-4" />
-            <span className="text-xs font-medium">
-              {lang === "en" ? "Chat on WhatsApp" : "راسلنا على واتساب"}
-            </span>
-          </a>
+        {/* حقوق الملكية في المنتصف */}
+        <div className="mt-8 border-t border-white/20 pt-4 text-xs text-gray-300 text-center">
+          {lang === "ar"
+            ? "© 2025 سعد وافي للمقاولات. جميع الحقوق محفوظة."
+            : "© 2025 Saad Wafi Contracting. All rights reserved."}
         </div>
-      </div>
-
-      {/* Divider */}
-      <div className="border-t border-blue-200 dark:border-blue-800 mt-2"></div>
-
-      {/* Copyright */}
-      <div className="text-center text-[10px] text-blue-600 dark:text-blue-300 py-1">
-        {lang === "en"
-          ? "© 2025 Saaed Wafi. All rights reserved."
-          : "© 2025 سعد وافي. جميع الحقوق محفوظة."}
       </div>
     </footer>
   );
