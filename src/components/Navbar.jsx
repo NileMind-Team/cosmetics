@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Menu, X, Sun, Moon, Globe } from 'lucide-react';
-import logoLight from '../assets/logo.png'; // اللوجو الأصلي للايت مود
-import logoDark from '../assets/logodark.png'; // اللوجو الجديد للدارك مود
-import { Link } from 'react-router-dom';
+import logoLight from '../assets/logo.png';
+import logoDark from '../assets/logodark.png';
 
 const Navbar = ({ lang, setLang }) => {
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('darkMode') === 'true');
@@ -42,35 +41,55 @@ const Navbar = ({ lang, setLang }) => {
     } else setMenuOpen(true);
   };
 
-  const navLinks = {
-    en: ['Home', 'About', 'Projects', 'Services', 'Contact'],
-    ar: ['الرئيسية', 'من نحن', 'المشاريع', 'الخدمات', 'تواصل معنا'],
+  const handleScroll = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      if (menuOpen) toggleMenu();
+    }
   };
 
-  const navLinksPaths = ['/', '/about', '/projects', '/services', '/contact'];
+  const navLinks = {
+    en: [
+      { id: 'home', label: 'Home' },
+      { id: 'about', label: 'About' },
+      { id: 'projects', label: 'Projects' },
+      { id: 'services', label: 'Services' },
+      { id: 'contact', label: 'Contact' },
+    ],
+    ar: [
+      { id: 'home', label: 'الرئيسية' },
+      { id: 'about', label: 'من نحن' },
+      { id: 'projects', label: 'المشاريع' },
+      { id: 'services', label: 'الخدمات' },
+      { id: 'contact', label: 'تواصل معنا' },
+    ],
+  };
 
   return (
     <header className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white fixed w-full top-0 left-0 z-50 shadow-[0_4px_12px_rgba(0,86,179,0.15)] transition-colors duration-300">
       <div className="container mx-auto px-3 py-1 flex items-center justify-between h-14 md:h-16">
+        {/* Logo */}
         <div className={`flex items-center ${lang === 'ar' ? 'justify-end' : 'justify-start'}`}>
           <img
-            src={darkMode ? logoDark : logoLight} // استخدام لوجو مختلف حسب المود
-            alt="Saaed Wafi Logo"
+            src={darkMode ? logoDark : logoLight}
+            alt="Logo"
             className="w-28 object-contain cursor-pointer hover:scale-105 transition-transform duration-300"
+            onClick={() => handleScroll('home')}
           />
         </div>
 
         {/* Desktop Links */}
         <nav className="hidden md:flex space-x-4 rtl:space-x-reverse text-sm">
           {navLinks[lang].map((link, index) => (
-            <Link
+            <button
               key={index}
-              to={navLinksPaths[index]}
+              onClick={() => handleScroll(link.id)}
               className="text-[#0056B3] dark:text-white hover:text-[#FF7A00] transition-all duration-300 font-medium relative group"
             >
-              {link}
+              {link.label}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF7A00] transition-all duration-300 group-hover:w-full"></span>
-            </Link>
+            </button>
           ))}
         </nav>
 
@@ -80,7 +99,11 @@ const Navbar = ({ lang, setLang }) => {
             onClick={() => setDarkMode(!darkMode)}
             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200"
           >
-            {darkMode ? <Sun size={18} className="text-[#FF7A00]" /> : <Moon size={18} className="text-[#FF7A00]" />}
+            {darkMode ? (
+              <Sun size={18} className="text-[#FF7A00]" />
+            ) : (
+              <Moon size={18} className="text-[#FF7A00]" />
+            )}
           </button>
 
           <button
@@ -118,16 +141,15 @@ const Navbar = ({ lang, setLang }) => {
           >
             <div className="flex flex-col space-y-2 w-full mt-4">
               {navLinks[lang].map((link, index) => (
-                <Link
+                <button
                   key={index}
-                  to={navLinksPaths[index]}
+                  onClick={() => handleScroll(link.id)}
                   style={{ transitionDelay: `${index * 80}ms` }}
-                  className="text-[#0056B3] dark:text-white hover:text-[#FF7A00] transition-all duration-500 font-medium text-base py-3 px-2 relative group"
-                  onClick={toggleMenu}
+                  className="text-[#0056B3] dark:text-white hover:text-[#FF7A00] transition-all duration-500 font-medium text-base py-3 px-2 relative group text-left"
                 >
-                  {link}
+                  {link.label}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF7A00] transition-all duration-500 group-hover:w-full"></span>
-                </Link>
+                </button>
               ))}
             </div>
 
@@ -136,7 +158,11 @@ const Navbar = ({ lang, setLang }) => {
                 onClick={() => setDarkMode(!darkMode)}
                 className="flex items-center justify-center gap-2 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300 flex-1"
               >
-                {darkMode ? <Sun size={18} className="text-[#FF7A00]" /> : <Moon size={18} className="text-[#FF7A00]" />}
+                {darkMode ? (
+                  <Sun size={18} className="text-[#FF7A00]" />
+                ) : (
+                  <Moon size={18} className="text-[#FF7A00]" />
+                )}
                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                   {darkMode ? (lang === 'en' ? 'Light' : 'فاتح') : lang === 'en' ? 'Dark' : 'داكن'}
                 </span>
