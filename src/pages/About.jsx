@@ -4,7 +4,10 @@ import { Building, Users, Target, CheckCircle } from "lucide-react";
 const About = ({ lang }) => {
   const [activeTab, setActiveTab] = useState(0);
   const sectionRef = useRef(null);
+  const cardsRef = useRef([]);
   const [visible, setVisible] = useState(false);
+  const [cardsVisible, setCardsVisible] = useState([]);
+  const observersRef = useRef([]);
 
   const content = {
     en: {
@@ -44,6 +47,43 @@ const About = ({ lang }) => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    // Initialize cards visibility to false for each card
+    setCardsVisible(Array(current.why.length).fill(false));
+
+    // Cleanup previous observers
+    observersRef.current.forEach(obs => obs.disconnect());
+    observersRef.current = [];
+
+    const newObservers = current.why.map((_, index) => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setCardsVisible(prev => {
+              const newVisible = [...prev];
+              newVisible[index] = true;
+              return newVisible;
+            });
+            observer.unobserve(entry.target);
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -10% 0px' }
+      );
+
+      if (cardsRef.current[index]) {
+        observer.observe(cardsRef.current[index]);
+      }
+
+      return observer;
+    });
+
+    observersRef.current = newObservers;
+
+    return () => {
+      newObservers.forEach(obs => obs.disconnect());
+    };
+  }, [current.why.length]);
+
   return (
     <section
       ref={sectionRef}
@@ -55,6 +95,7 @@ const About = ({ lang }) => {
       <div className="container mx-auto px-6 text-center max-w-4xl">
         <h2 className="text-3xl md:text-4xl font-bold text-[#0056B3] dark:text-blue-400 mb-2">
           {current.title}
+          <span className="block mx-auto mt-2 w-16 h-1 bg-[#FF7A00] rounded-full"></span>
         </h2>
         <p className="text-lg text-[#FF7A00] font-semibold mb-4">{current.subtitle}</p>
         <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-8">
@@ -67,10 +108,10 @@ const About = ({ lang }) => {
             <button
               key={i}
               onClick={() => setActiveTab(i)}
-              className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full border text-sm transition ${
+              className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full border text-sm transition-all duration-300 ${
                 activeTab === i
-                  ? "bg-[#FF7A00] text-white border-[#FF7A00]"
-                  : "bg-transparent text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-[#FF7A00] dark:hover:border-[#FF7A00]"
+                  ? "bg-[#FF7A00] text-white border-[#FF7A00] scale-105"
+                  : "bg-transparent text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-[#FF7A00] dark:hover:border-[#FF7A00] hover:scale-105"
               }`}
             >
               {tab.icon}
@@ -80,7 +121,7 @@ const About = ({ lang }) => {
         </div>
 
         {/* Tab Content */}
-        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm mb-8 border-l-4 border-[#FF7A00]">
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm mb-8 border-l-4 border-[#FF7A00] transition-all duration-500 hover:shadow-md">
           <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
             {current.tabs[activeTab].content}
           </p>
@@ -95,7 +136,13 @@ const About = ({ lang }) => {
             {current.why.map((item, i) => (
               <div
                 key={i}
-                className="flex items-center gap-2 bg-white dark:bg-gray-800 p-3 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 text-sm"
+                ref={el => cardsRef.current[i] = el}
+                className={`flex items-center gap-2 bg-white dark:bg-gray-800 p-3 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 text-sm transition-all duration-500 transform ${
+                  cardsVisible[i] 
+                    ? "opacity-100 translate-y-0 scale-100" 
+                    : "opacity-0 translate-y-4 scale-95"
+                }`}
+                style={{ transitionDelay: `${i * 100}ms` }}
               >
                 <div className="bg-[#FF7A00] w-6 h-6 flex items-center justify-center rounded-full">
                   <CheckCircle className="w-3 h-3 text-white" />

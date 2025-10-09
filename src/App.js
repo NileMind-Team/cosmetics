@@ -1,4 +1,4 @@
-import { useState , useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Footer from './components/Footer';
@@ -12,7 +12,7 @@ function App() {
   }, [lang]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-500">
       <Navbar lang={lang} setLang={setLang} />
       <Home lang={lang} />
       <Footer lang={lang} />
@@ -21,5 +21,3 @@ function App() {
 }
 
 export default App;
-
-

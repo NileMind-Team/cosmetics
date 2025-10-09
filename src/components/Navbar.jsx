@@ -41,10 +41,19 @@ const Navbar = ({ lang, setLang }) => {
     } else setMenuOpen(true);
   };
 
+  // ✅ تعديل الدالة هنا
   const handleScroll = (id) => {
     const section = document.getElementById(id);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      const headerOffset = 50; // ارتفاع الهيدر (ممكن تغيري الرقم لو عايزة)
+      const elementPosition = section.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+
       if (menuOpen) toggleMenu();
     }
   };
@@ -67,7 +76,7 @@ const Navbar = ({ lang, setLang }) => {
   };
 
   return (
-    <header className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white fixed w-full top-0 left-0 z-50 shadow-[0_4px_12px_rgba(0,86,179,0.15)] transition-colors duration-300">
+    <header className="bg-white dark:bg-gray-900/95 backdrop-blur-sm text-gray-800 dark:text-white fixed w-full top-0 left-0 z-50 shadow-[0_4px_12px_rgba(0,86,179,0.15)] transition-colors duration-300">
       <div className="container mx-auto px-3 py-1 flex items-center justify-between h-14 md:h-16">
         {/* Logo */}
         <div className={`flex items-center ${lang === 'ar' ? 'justify-end' : 'justify-start'}`}>
@@ -80,44 +89,44 @@ const Navbar = ({ lang, setLang }) => {
         </div>
 
         {/* Desktop Links */}
-        <nav className="hidden md:flex space-x-4 rtl:space-x-reverse text-sm">
+        <nav className="hidden md:flex space-x-8 rtl:space-x-reverse text-base font-medium">
           {navLinks[lang].map((link, index) => (
             <button
               key={index}
               onClick={() => handleScroll(link.id)}
-              className="text-[#0056B3] dark:text-white hover:text-[#FF7A00] transition-all duration-300 font-medium relative group"
+              className="text-[#0056B3] dark:text-white hover:text-[#FF7A00] transition-all duration-300 relative group py-2"
             >
               {link.label}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF7A00] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FF7A00] transition-all duration-300 group-hover:w-full"></span>
             </button>
           ))}
         </nav>
 
         {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-4">
           <button
             onClick={() => setDarkMode(!darkMode)}
             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200"
           >
             {darkMode ? (
-              <Sun size={18} className="text-[#FF7A00]" />
+              <Sun size={20} className="text-[#FF7A00]" />
             ) : (
-              <Moon size={18} className="text-[#FF7A00]" />
+              <Moon size={20} className="text-[#FF7A00]" />
             )}
           </button>
 
           <button
             onClick={toggleLang}
-            className="bg-[#FF7A00] text-white px-3 py-1.5 rounded-md text-sm hover:bg-[#e56a00] transition duration-200 font-medium flex items-center gap-1"
+            className="bg-[#FF7A00] text-white px-4 py-2 rounded-md text-base hover:bg-[#e56a00] transition duration-200 font-medium flex items-center gap-2"
           >
-            <Globe size={16} />
+            <Globe size={18} />
             {lang === 'en' ? 'AR' : 'EN'}
           </button>
         </div>
 
         {/* Mobile Menu Button */}
         <button className="md:hidden text-gray-800 dark:text-white" onClick={toggleMenu}>
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
@@ -133,46 +142,46 @@ const Navbar = ({ lang, setLang }) => {
           />
 
           <div
-            className={`fixed top-14 bottom-0 bg-white dark:bg-gray-900 z-50 shadow-2xl p-4 flex flex-col transition-all duration-500 transform md:hidden ${
+            className={`fixed top-14 bottom-0 bg-white dark:bg-gray-900 z-50 shadow-2xl p-6 flex flex-col transition-all duration-500 transform md:hidden ${
               lang === 'ar'
                 ? `right-0 w-[65%] ${menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`
                 : `left-0 w-[65%] ${menuOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`
             }`}
           >
-            <div className="flex flex-col space-y-2 w-full mt-4">
+            <div className="flex flex-col space-y-4 w-full mt-6">
               {navLinks[lang].map((link, index) => (
                 <button
                   key={index}
                   onClick={() => handleScroll(link.id)}
                   style={{ transitionDelay: `${index * 80}ms` }}
-                  className="text-[#0056B3] dark:text-white hover:text-[#FF7A00] transition-all duration-500 font-medium text-base py-3 px-2 relative group text-left"
+                  className="text-[#0056B3] dark:text-white hover:text-[#FF7A00] transition-all duration-500 font-medium text-lg py-3 px-3 relative group text-left rtl:text-right"
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF7A00] transition-all duration-500 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FF7A00] transition-all duration-500 group-hover:w-full rtl:left-auto rtl:right-0"></span>
                 </button>
               ))}
             </div>
 
-            <div className="mt-8 w-full flex justify-between items-center gap-3 px-2">
+            <div className="mt-8 w-full flex justify-between items-center gap-4 px-2">
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className="flex items-center justify-center gap-2 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300 flex-1"
+                className="flex items-center justify-center gap-2 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300 flex-1"
               >
                 {darkMode ? (
-                  <Sun size={18} className="text-[#FF7A00]" />
+                  <Sun size={20} className="text-[#FF7A00]" />
                 ) : (
-                  <Moon size={18} className="text-[#FF7A00]" />
+                  <Moon size={20} className="text-[#FF7A00]" />
                 )}
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                <span className="text-base font-medium text-gray-700 dark:text-gray-300">
                   {darkMode ? (lang === 'en' ? 'Light' : 'فاتح') : lang === 'en' ? 'Dark' : 'داكن'}
                 </span>
               </button>
 
               <button
                 onClick={toggleLang}
-                className="flex items-center justify-center gap-2 bg-[#FF7A00] text-white px-3 py-2 rounded-lg hover:bg-[#e56a00] transition duration-300 font-medium text-sm flex-1"
+                className="flex items-center justify-center gap-2 bg-[#FF7A00] text-white px-4 py-3 rounded-lg hover:bg-[#e56a00] transition duration-300 font-medium text-base flex-1"
               >
-                <Globe size={16} />
+                <Globe size={18} />
                 {lang === 'en' ? 'AR' : 'EN'}
               </button>
             </div>
