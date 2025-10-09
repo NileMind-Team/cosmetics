@@ -1,10 +1,15 @@
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Footer from './components/Footer';
 
 function App() {
-  const [lang, setLang] = useState('en');
+  const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'en');
+
+  // حفظ اللغة في localStorage عند التغيير
+  useEffect(() => {
+    localStorage.setItem('lang', lang);
+  }, [lang]);
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
@@ -16,3 +21,5 @@ function App() {
 }
 
 export default App;
+
+
