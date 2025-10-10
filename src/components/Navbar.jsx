@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Menu, X, Sun, Moon, Globe } from 'lucide-react';
-import logoLight from '../assets/logo.png';
-import logoDark from '../assets/logodark.png';
+import logoLight from '../Assets/logo.png';
+import logoDark from '../Assets/logodark.png';
 
 const Navbar = ({ lang, setLang }) => {
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('darkMode') === 'true');

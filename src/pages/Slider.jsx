@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 
-import slide1 from '../assets/1.jpg';
-import slide2 from '../assets/2.jpg';
-import slide3 from '../assets/3.jpg';
-import slide4 from '../assets/4.jpg';
+import slide1 from '../Assets/1.jpg';
+import slide2 from '../Assets/2.jpg';
+import slide3 from '../Assets/3.jpg';
+import slide4 from '../Assets/4.jpg';
 
 const Slider = ({ lang }) => {
   const slides = {

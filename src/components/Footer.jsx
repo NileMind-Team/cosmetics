@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, MessageCircle } from 'lucide-react';
-import bg from '../assets/footer.jpeg';
-import logo from '../assets/logodark.png';
+import bg from '../Assets/footer.jpeg';
+import logo from '../Assets/logodark.png';
 
 const Footer = ({ lang = 'ar' }) => {
   const whatsappNumber = '966506751303';

@@ -62,21 +62,21 @@ const Projects = ({ lang }) => {
   const current = content[lang] || content.en;
 
   const projectImages = [
-    require('../assets/project1.jpg'),
-    require('../assets/project2.jpg'),
-    require('../assets/project3.jpg'),
-    require('../assets/project4.jpg'),
-    require('../assets/project5.jpg'),
-    require('../assets/project6.jpg'),
-    require('../assets/project7.jpg'),
-    require('../assets/project8.jpg'),
-    require('../assets/project9.jpg'),
-    require('../assets/project10.jpg'),
-    require('../assets/project11.jpg'),
-    require('../assets/project12.jpg'),
-    require('../assets/project13.jpg'),
-    require('../assets/project14.jpg'),
-    require('../assets/project15.jpg'),
+    require('../Assets/project1.jpg'),
+    require('../Assets/project2.jpg'),
+    require('../Assets/project3.jpg'),
+    require('../Assets/project4.jpg'),
+    require('../Assets/project5.jpg'),
+    require('../Assets/project6.jpg'),
+    require('../Assets/project7.jpg'),
+    require('../Assets/project8.jpg'),
+    require('../Assets/project9.jpg'),
+    require('../Assets/project10.jpg'),
+    require('../Assets/project11.jpg'),
+    require('../Assets/project12.jpg'),
+    require('../Assets/project13.jpg'),
+    require('../Assets/project14.jpg'),
+    require('../Assets/project15.jpg'),
   ];
 
   const visibleImages = projectImages.slice(0, 6);
