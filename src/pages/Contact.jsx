@@ -113,10 +113,11 @@ const Contact = ({ lang }) => {
           <div
             ref={contactInfoRef}
             className={`flex flex-col justify-center space-y-5 text-gray-700 dark:text-gray-300 transition-all duration-700 transform ${
-              elementsVisible.contactInfo ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              elementsVisible.contactInfo ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
+            style={{ transitionDelay: '100ms' }}
           >
-            <div className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 hover:scale-105">
+            <div className="bg-white dark:bg-gray-900 p-4 sm:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 hover:scale-105">
               <div className="flex items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2">
                 <MapPin className="text-[#FF7A00] flex-shrink-0" />
                 <span>
@@ -163,8 +164,8 @@ const Contact = ({ lang }) => {
           {/* Right Side: Contact Form */}
           <div
             ref={contactFormRef}
-            className={`bg-white dark:bg-gray-900 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-700 transform ${
-              elementsVisible.contactForm ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+            className={`bg-white dark:bg-gray-900 p-4 sm:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-700 transform ${
+              elementsVisible.contactForm ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{ transitionDelay: '200ms' }}
           >
@@ -173,7 +174,7 @@ const Contact = ({ lang }) => {
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-5">
-              {['name', 'email'].map((field, index) => (
+              {['name', 'email'].map((field) => (
                 <div key={field}>
                   <label
                     htmlFor={field}
