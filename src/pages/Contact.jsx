@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
+import { Mail, MapPin, Send, MessageCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 
@@ -58,6 +58,7 @@ const Contact = ({ lang }) => {
           name: formData.name,
           email: formData.email,
           message: formData.message,
+          to_email: emails.join(','),
         },
         publicKey
       )
