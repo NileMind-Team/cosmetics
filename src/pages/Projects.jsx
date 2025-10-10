@@ -103,7 +103,7 @@ const Projects = ({ lang }) => {
       <section
         ref={sectionRef}
         dir={lang === 'ar' ? 'rtl' : 'ltr'}
-        className={`py-16 bg-gray-50 dark:bg-gray-900 transition-all duration-700 ${
+        className={`py-16 transition-all duration-700 bg-sky-50 dark:bg-gray-800 ${
           visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
         }`}
       >

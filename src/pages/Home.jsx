@@ -1,3 +1,4 @@
+import ScrollToHomeButton from '../components/ScrollToHomeButton';
 import About from '../pages/About';
 import Services from '../pages/Services';
 import Contact from './Contact';
@@ -9,6 +10,7 @@ const Home = ({ lang }) => {
     <div>
       <section id="home">
         <Slider lang={lang} />
+        <ScrollToHomeButton lang={lang} />
       </section>
       <section id="about">
         <About lang={lang} />

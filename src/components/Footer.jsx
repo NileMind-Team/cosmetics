@@ -23,7 +23,6 @@ const Footer = ({ lang = "ar" }) => {
     ],
   };
 
-  // ✅ دالة لتطبيق المسافة عند السكروول
   const handleScroll = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -44,7 +43,6 @@ const Footer = ({ lang = "ar" }) => {
       className={`relative text-white ${lang === "ar" ? "text-right" : "text-left"}`}
       dir={lang === "ar" ? "rtl" : "ltr"}
     >
-      {/* الخلفية */}
       <div
         className="absolute inset-0 bg-center bg-cover"
         style={{
@@ -54,13 +52,10 @@ const Footer = ({ lang = "ar" }) => {
         aria-hidden="true"
       />
 
-      {/* الطبقة الغامقة */}
       <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
 
-      {/* المحتوى */}
       <div className="relative max-w-6xl mx-auto px-6 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* الشركة */}
           <div className="space-y-3">
             <h3 className="text-xl font-semibold">
               {lang === "ar" ? "سعد وافي" : "Saad Wafi"}
@@ -72,7 +67,6 @@ const Footer = ({ lang = "ar" }) => {
             </p>
           </div>
 
-          {/* روابط سريعة */}
           <div>
             <h4 className="text-lg font-medium mb-3">
               {lang === "ar" ? "روابط سريعة" : "Quick Links"}
@@ -90,7 +84,6 @@ const Footer = ({ lang = "ar" }) => {
             </ul>
           </div>
 
-          {/* تواصل معنا */}
           <div>
             <h4 className="text-lg font-medium mb-3">
               {lang === "ar" ? "تواصل معنا" : "Contact Us"}
@@ -127,7 +120,6 @@ const Footer = ({ lang = "ar" }) => {
           </div>
         </div>
 
-        {/* حقوق الملكية في المنتصف */}
         <div className="mt-8 border-t border-white/20 pt-4 text-xs text-gray-300 text-center">
           {lang === "ar"
             ? "© 2025 سعد وافي للمقاولات. جميع الحقوق محفوظة."

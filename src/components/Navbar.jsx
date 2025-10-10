@@ -41,11 +41,10 @@ const Navbar = ({ lang, setLang }) => {
     } else setMenuOpen(true);
   };
 
-  // ✅ تعديل الدالة هنا
   const handleScroll = (id) => {
     const section = document.getElementById(id);
     if (section) {
-      const headerOffset = 45; // ارتفاع الهيدر (ممكن تغيري الرقم لو عايزة)
+      const headerOffset = 45;
       const elementPosition = section.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - headerOffset;
 
@@ -76,7 +75,7 @@ const Navbar = ({ lang, setLang }) => {
   };
 
   return (
-    <header className="bg-white dark:bg-gray-900/95 backdrop-blur-sm text-gray-800 dark:text-white fixed w-full top-0 left-0 z-50 shadow-[0_4px_12px_rgba(0,86,179,0.15)] transition-colors duration-300">
+    <header className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white fixed w-full top-0 left-0 z-50 shadow-[0_4px_12px_rgba(0,86,179,0.15)] transition-colors duration-300">
       <div className="container mx-auto px-3 py-1 flex items-center justify-between h-14 md:h-16">
         {/* Logo */}
         <div className={`flex items-center ${lang === 'ar' ? 'justify-end' : 'justify-start'}`}>
@@ -94,7 +93,7 @@ const Navbar = ({ lang, setLang }) => {
             <button
               key={index}
               onClick={() => handleScroll(link.id)}
-              className="text-[#0056B3] dark:text-white hover:text-[#FF7A00] transition-all duration-300 relative group py-2"
+              className="text-[#0056B3] dark:text-white hover:text-[#FF7A00] transition-all duration-300 relative group py-1"
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FF7A00] transition-all duration-300 group-hover:w-full"></span>
@@ -154,7 +153,7 @@ const Navbar = ({ lang, setLang }) => {
                   key={index}
                   onClick={() => handleScroll(link.id)}
                   style={{ transitionDelay: `${index * 80}ms` }}
-                  className="text-[#0056B3] dark:text-white hover:text-[#FF7A00] transition-all duration-500 font-medium text-lg py-3 px-3 relative group text-left rtl:text-right"
+                  className="text-[#0056B3] dark:text-white hover:text-[#FF7A00] transition-all duration-500 font-medium text-lg py-2 px-3 relative group text-left rtl:text-right"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FF7A00] transition-all duration-500 group-hover:w-full rtl:left-auto rtl:right-0"></span>

@@ -1,163 +1,7 @@
-// import { useState } from 'react';
-// import { Mail, Phone, MapPin, Send } from 'lucide-react';
-// import emailjs from '@emailjs/browser';
-
-// const Contact = ({ lang }) => {
-//   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-//   const [loading, setLoading] = useState(false);
-
-//   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     setLoading(true);
-
-//     emailjs
-//       .send(
-//         'service_xxxxx',
-//         'template_xxxxx',
-//         { from_name: formData.name, from_email: formData.email, message: formData.message },
-//         'publicKey_xxxxx'
-//       )
-//       .then(
-//         () => {
-//           alert(lang === 'ar' ? 'تم إرسال الرسالة بنجاح!' : 'Message sent successfully!');
-//           setFormData({ name: '', email: '', message: '' });
-//           setLoading(false);
-//         },
-//         (error) => {
-//           console.error('FAILED...', error);
-//           alert(lang === 'ar' ? 'حدث خطأ أثناء إرسال الرسالة' : 'Something went wrong!');
-//           setLoading(false);
-//         }
-//       );
-//   };
-
-//   return (
-//     <section
-//       id="contact"
-//       dir={lang === 'ar' ? 'rtl' : 'ltr'}
-//       className="py-16 bg-gray-50 dark:bg-gray-900 transition-all duration-700"
-//     >
-//       <div className="container mx-auto px-6 max-w-5xl">
-//         <h2 className="text-3xl md:text-4xl font-bold text-[#0056B3] dark:text-blue-400 mb-2 text-center">
-//           {lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}
-//           <span className="block mx-auto mt-2 w-16 h-1 bg-[#FF7A00] rounded-full"></span>
-//         </h2>
-//         <p className="text-lg text-[#FF7A00] font-semibold mb-4 text-center">
-//           {lang === 'ar'
-//             ? 'هل لديك أي استفسار أو تحتاج إلى مزيد من المعلومات؟ يسعدنا تواصلك معنا في أي وقت.'
-//             : "Have any questions or need more information? We're happy to hear from you anytime."}
-//         </p>
-
-//         <div className="grid md:grid-cols-2 gap-8 mt-12">
-//           {/* Left Side: Contact Info */}
-//           <div className="flex flex-col justify-center space-y-5 text-gray-700 dark:text-gray-300">
-//             <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
-//               <div className="flex items-center gap-3 mb-4">
-//                 <MapPin className="text-[#FF7A00]" />
-//                 <span>
-//                   {lang === 'ar' ? 'الرياض، المملكة العربية السعودية' : 'Riyadh, Saudi Arabia'}
-//                 </span>
-//               </div>
-//               <div className="flex items-center gap-3 mb-4">
-//                 <Phone className="text-[#FF7A00]" />
-//                 <span>+966 50 675 1303</span>
-//               </div>
-//               <div className="flex items-center gap-3 mb-4">
-//                 <Mail className="text-[#FF7A00]" />
-//                 <span>genralpedwi@gmail.com</span>
-//               </div>
-//               <div className="flex items-center gap-3">
-//                 <Mail className="text-[#FF7A00]" />
-//                 <span>sdwr2000@gmail.com</span>
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* Right Side: Contact Form */}
-//           <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
-//             <h3 className="text-2xl font-semibold text-[#0056B3] dark:text-blue-400 mb-6">
-//               {lang === 'ar' ? 'أرسل رسالة' : 'Send a Message'}
-//             </h3>
-
-//             <form onSubmit={handleSubmit} className="space-y-5">
-//               {['name', 'email'].map((field) => (
-//                 <div key={field}>
-//                   <label
-//                     htmlFor={field}
-//                     className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
-//                   >
-//                     {lang === 'ar'
-//                       ? field === 'name'
-//                         ? 'الاسم'
-//                         : 'البريد الإلكتروني'
-//                       : field === 'name'
-//                         ? 'Name'
-//                         : 'Email'}
-//                   </label>
-//                   <input
-//                     type={field === 'email' ? 'email' : 'text'}
-//                     id={field}
-//                     name={field}
-//                     value={formData[field]}
-//                     onChange={handleChange}
-//                     required
-//                     className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF7A00] transition-all"
-//                   />
-//                 </div>
-//               ))}
-
-//               <div>
-//                 <label
-//                   htmlFor="message"
-//                   className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
-//                 >
-//                   {lang === 'ar' ? 'الرسالة' : 'Message'}
-//                 </label>
-//                 <textarea
-//                   id="message"
-//                   name="message"
-//                   rows="5"
-//                   value={formData.message}
-//                   onChange={handleChange}
-//                   required
-//                   className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF7A00] transition-all resize-none"
-//                 ></textarea>
-//               </div>
-
-//               <button
-//                 type="submit"
-//                 disabled={loading}
-//                 className="flex items-center justify-center gap-2 w-full bg-[#FF7A00] hover:bg-[#ff8c1a] text-white font-medium py-3 rounded-full transition-all duration-300 disabled:opacity-70"
-//               >
-//                 <Send size={18} />
-//                 {loading
-//                   ? lang === 'ar'
-//                     ? 'جارٍ الإرسال...'
-//                     : 'Sending...'
-//                   : lang === 'ar'
-//                     ? 'إرسال'
-//                     : 'Send'}
-//               </button>
-//             </form>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Contact;
-
-
-
-
-
-
 import { useState, useEffect, useRef } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import Swal from 'sweetalert2';
 
 const Contact = ({ lang }) => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -165,33 +9,32 @@ const Contact = ({ lang }) => {
   const [visible, setVisible] = useState(false);
   const [elementsVisible, setElementsVisible] = useState({
     contactInfo: false,
-    contactForm: false
+    contactForm: false,
   });
-  
+
   const sectionRef = useRef(null);
   const contactInfoRef = useRef(null);
   const contactFormRef = useRef(null);
+
+  const whatsappNumber = '966506751303';
+  const emails = ['genralpedwi@gmail.com', 'sdwr2000@gmail.com'];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          // تفعيل ظهور العناصر بعد ظهور القسم الرئيسي
           setTimeout(() => {
             setElementsVisible({
               contactInfo: true,
-              contactForm: true
+              contactForm: true,
             });
           }, 300);
         }
       },
-      { 
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      }
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
-    
+
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
@@ -202,22 +45,42 @@ const Contact = ({ lang }) => {
     e.preventDefault();
     setLoading(true);
 
+    const serviceId = 'service_g8rofl4';
+    const templateId = 'template_6gkgqwj';
+    const publicKey = 'f47TUCCm9Zno_KThM';
+
     emailjs
       .send(
-        'service_xxxxx',
-        'template_xxxxx',
-        { from_name: formData.name, from_email: formData.email, message: formData.message },
-        'publicKey_xxxxx'
+        serviceId,
+        templateId,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        publicKey
       )
       .then(
         () => {
-          alert(lang === 'ar' ? 'تم إرسال الرسالة بنجاح!' : 'Message sent successfully!');
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: lang === 'ar' ? 'تم إرسال الرسالة بنجاح ✅' : 'Message sent successfully ✅',
+            showConfirmButton: false,
+            timer: 2000,
+          });
           setFormData({ name: '', email: '', message: '' });
           setLoading(false);
         },
         (error) => {
           console.error('FAILED...', error);
-          alert(lang === 'ar' ? 'حدث خطأ أثناء إرسال الرسالة' : 'Something went wrong!');
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: lang === 'ar' ? 'حدث خطأ أثناء إرسال الرسالة ❌' : 'Something went wrong ❌',
+            text: error.text || error.message || '',
+            showConfirmButton: true,
+          });
           setLoading(false);
         }
       );
@@ -228,8 +91,8 @@ const Contact = ({ lang }) => {
       id="contact"
       ref={sectionRef}
       dir={lang === 'ar' ? 'rtl' : 'ltr'}
-      className={`py-16 bg-gray-50 dark:bg-gray-900 transition-all duration-700 ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      className={`py-16 transition-all duration-700 bg-sky-50 dark:bg-gray-800 ${
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
       }`}
     >
       <div className="container mx-auto px-6 max-w-5xl">
@@ -245,12 +108,10 @@ const Contact = ({ lang }) => {
 
         <div className="grid md:grid-cols-2 gap-8 mt-12">
           {/* Left Side: Contact Info */}
-          <div 
+          <div
             ref={contactInfoRef}
             className={`flex flex-col justify-center space-y-5 text-gray-700 dark:text-gray-300 transition-all duration-700 transform ${
-              elementsVisible.contactInfo 
-                ? "opacity-100 translate-x-0" 
-                : "opacity-0 -translate-x-8"
+              elementsVisible.contactInfo ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
             }`}
           >
             <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 hover:scale-105">
@@ -260,28 +121,40 @@ const Contact = ({ lang }) => {
                   {lang === 'ar' ? 'الرياض، المملكة العربية السعودية' : 'Riyadh, Saudi Arabia'}
                 </span>
               </div>
+
+              {/* WhatsApp Link */}
               <div className="flex items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2">
                 <Phone className="text-[#FF7A00] flex-shrink-0" />
-                <span>+966 50 675 1303</span>
+                <a
+                  href={`https://wa.me/${whatsappNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FF7A00] transition-colors"
+                >
+                  +966 50 675 1303
+                </a>
               </div>
-              <div className="flex items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2">
-                <Mail className="text-[#FF7A00] flex-shrink-0" />
-                <span>genralpedwi@gmail.com</span>
-              </div>
-              <div className="flex items-center gap-3 transition-transform duration-300 hover:translate-x-2">
-                <Mail className="text-[#FF7A00] flex-shrink-0" />
-                <span>sdwr2000@gmail.com</span>
-              </div>
+
+              {/* Emails */}
+              {emails.map((email, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2"
+                >
+                  <Mail className="text-[#FF7A00] flex-shrink-0" />
+                  <a href={`mailto:${email}`} className="hover:text-[#FF7A00] transition-colors">
+                    {email}
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Right Side: Contact Form */}
-          <div 
+          <div
             ref={contactFormRef}
             className={`bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-700 transform ${
-              elementsVisible.contactForm 
-                ? "opacity-100 translate-x-0" 
-                : "opacity-0 translate-x-8"
+              elementsVisible.contactForm ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
             style={{ transitionDelay: '200ms' }}
           >
@@ -291,15 +164,7 @@ const Contact = ({ lang }) => {
 
             <form onSubmit={handleSubmit} className="space-y-5">
               {['name', 'email'].map((field, index) => (
-                <div 
-                  key={field}
-                  className={`transition-all duration-500 transform ${
-                    elementsVisible.contactForm 
-                      ? "opacity-100 translate-y-0" 
-                      : "opacity-0 translate-y-4"
-                  }`}
-                  style={{ transitionDelay: `${400 + (index * 100)}ms` }}
-                >
+                <div key={field}>
                   <label
                     htmlFor={field}
                     className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
@@ -319,19 +184,18 @@ const Contact = ({ lang }) => {
                     value={formData[field]}
                     onChange={handleChange}
                     required
-                    className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF7A00] transition-all duration-300 hover:border-[#FF7A00]"
+                    className="w-full border border-gray-300 dark:border-gray-700 
+                               rounded-lg px-4 py-3 
+                               focus:outline-none focus:ring-2 focus:ring-[#FF7A00]
+                               transition-all duration-300 hover:border-[#FF7A00]
+                               bg-white dark:bg-gray-700
+                               text-gray-900 dark:text-white
+                               placeholder-gray-400 dark:placeholder-gray-300"
                   />
                 </div>
               ))}
 
-              <div 
-                className={`transition-all duration-500 transform ${
-                  elementsVisible.contactForm 
-                    ? "opacity-100 translate-y-0" 
-                    : "opacity-0 translate-y-4"
-                }`}
-                style={{ transitionDelay: '600ms' }}
-              >
+              <div>
                 <label
                   htmlFor="message"
                   className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
@@ -345,33 +209,31 @@ const Contact = ({ lang }) => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF7A00] transition-all duration-300 hover:border-[#FF7A00] resize-none"
+                  className="w-full border border-gray-300 dark:border-gray-700 
+                             rounded-lg px-4 py-3 
+                             focus:outline-none focus:ring-2 focus:ring-[#FF7A00]
+                             transition-all duration-300 hover:border-[#FF7A00]
+                             resize-none
+                             bg-white dark:bg-gray-700
+                             text-gray-900 dark:text-white
+                             placeholder-gray-400 dark:placeholder-gray-300"
                 ></textarea>
               </div>
 
-              <div 
-                className={`transition-all duration-500 transform ${
-                  elementsVisible.contactForm 
-                    ? "opacity-100 translate-y-0" 
-                    : "opacity-0 translate-y-4"
-                }`}
-                style={{ transitionDelay: '800ms' }}
+              <button
+                type="submit"
+                disabled={loading}
+                className="flex items-center justify-center gap-2 w-full bg-[#FF7A00] hover:bg-[#ff8c1a] text-white font-medium py-3 rounded-full transition-all duration-300 disabled:opacity-70 transform hover:scale-105 active:scale-95"
               >
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="flex items-center justify-center gap-2 w-full bg-[#FF7A00] hover:bg-[#ff8c1a] text-white font-medium py-3 rounded-full transition-all duration-300 disabled:opacity-70 transform hover:scale-105 active:scale-95"
-                >
-                  <Send size={18} />
-                  {loading
-                    ? lang === 'ar'
-                      ? 'جارٍ الإرسال...'
-                      : 'Sending...'
-                    : lang === 'ar'
-                      ? 'إرسال'
-                      : 'Send'}
-                </button>
-              </div>
+                <Send size={18} />
+                {loading
+                  ? lang === 'ar'
+                    ? 'جارٍ الإرسال...'
+                    : 'Sending...'
+                  : lang === 'ar'
+                    ? 'إرسال'
+                    : 'Send'}
+              </button>
             </form>
           </div>
         </div>
