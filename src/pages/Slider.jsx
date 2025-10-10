@@ -6,7 +6,6 @@ import slide3 from '../assets/3.jpg';
 import slide4 from '../assets/4.jpg';
 
 const Slider = ({ lang }) => {
-
   const slides = {
     en: [
       {
@@ -22,7 +21,7 @@ const Slider = ({ lang }) => {
         id: 2,
         title: 'Our Projects Reflect Excellence',
         subtitle:
-          'From concept to completion, Saaed Wafi Real Estate delivers projects that combine innovation and trust.',
+          'From concept to completion, Wafi Saad Real Estate delivers projects that combine innovation and trust.',
         image: slide2,
         buttonText: 'Learn More',
         targetId: 'projects',
@@ -61,7 +60,7 @@ const Slider = ({ lang }) => {
         id: 2,
         title: 'مشاريعنا تعكس التميز والإبداع',
         subtitle:
-          'من الفكرة إلى التنفيذ، تقدم شركة سعد وافي العقارية مشاريع تجمع بين الجودة والابتكار والثقة.',
+          'من الفكرة إلى التنفيذ، تقدم شركة وافي سعد العقارية مشاريع تجمع بين الجودة والابتكار والثقة.',
         image: slide2,
         buttonText: 'اعرف أكثر',
         targetId: 'projects',
@@ -134,7 +133,7 @@ const Slider = ({ lang }) => {
             </p>
             <button
               onClick={() => handleScroll(slide.targetId)}
-              className="bg-[#FF7A00] hover:bg-[#ff8c1a] text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg"
+              className="bg-[#FF7A00] border-2 border-[#FF7A00] text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-[0_0_10px_5px_rgba(255,122,0,0.5)] hover:shadow-[0_0_15px_8px_rgba(255,122,0,0.7)]"
             >
               {slide.buttonText}
             </button>

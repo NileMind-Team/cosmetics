@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 
@@ -18,6 +18,7 @@ const Contact = ({ lang }) => {
 
   const whatsappNumber = '966506751303';
   const emails = ['genralpedwi@gmail.com', 'sdwr2000@gmail.com'];
+  const taxNumber = '312864606400003';
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -96,7 +97,7 @@ const Contact = ({ lang }) => {
       }`}
     >
       <div className="container mx-auto px-6 max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#0056B3] dark:text-blue-400 mb-2 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#0056B3] dark:text-blue-400 mb-6 text-center">
           {lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}
           <span className="block mx-auto mt-2 w-16 h-1 bg-[#FF7A00] rounded-full"></span>
         </h2>
@@ -114,7 +115,7 @@ const Contact = ({ lang }) => {
               elementsVisible.contactInfo ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
             }`}
           >
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 hover:scale-105">
+            <div className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 hover:scale-105">
               <div className="flex items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2">
                 <MapPin className="text-[#FF7A00] flex-shrink-0" />
                 <span>
@@ -124,12 +125,12 @@ const Contact = ({ lang }) => {
 
               {/* WhatsApp Link */}
               <div className="flex items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2">
-                <Phone className="text-[#FF7A00] flex-shrink-0" />
+                <MessageCircle className="text-[#25D366] flex-shrink-0" />
                 <a
                   href={`https://wa.me/${whatsappNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#FF7A00] transition-colors"
+                  className="hover:text-[#25D366] transition-colors"
                 >
                   +966 50 675 1303
                 </a>
@@ -147,18 +148,26 @@ const Contact = ({ lang }) => {
                   </a>
                 </div>
               ))}
+
+              {/* Tax Registration Number */}
+              <div className="flex items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2">
+                <span className="font-semibold text-[#FF7A00]">
+                  {lang === 'ar' ? 'رقم التسجيل الضريبي:' : 'Tax Registration No:'}
+                </span>
+                <span>{taxNumber}</span>
+              </div>
             </div>
           </div>
 
           {/* Right Side: Contact Form */}
           <div
             ref={contactFormRef}
-            className={`bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-700 transform ${
+            className={`bg-white dark:bg-gray-900 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-700 transform ${
               elementsVisible.contactForm ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
             style={{ transitionDelay: '200ms' }}
           >
-            <h3 className="text-2xl font-semibold text-[#0056B3] dark:text-blue-400 mb-6">
+            <h3 className="text-2xl font-semibold text-[#FF7A00] mb-6">
               {lang === 'ar' ? 'أرسل رسالة' : 'Send a Message'}
             </h3>
 

@@ -14,7 +14,7 @@ const About = ({ lang }) => {
       title: "About Our Company",
       subtitle: "Building Your Vision, Constructing Excellence",
       description:
-        "Saaed Wafi Construction delivers high-quality, reliable, and innovative projects across residential, commercial, and industrial sectors.",
+        "Wafi Saad Construction delivers high-quality, reliable, and innovative projects across residential, commercial, and industrial sectors.",
       tabs: [
         { title: "Our Mission", icon: <Target className="w-4 h-4" />, content: "Deliver exceptional construction services through quality, innovation, and client satisfaction." },
         { title: "Our Vision", icon: <Building className="w-4 h-4" />, content: "Be a leader in the construction industry with sustainable and modern infrastructure." },
@@ -26,7 +26,7 @@ const About = ({ lang }) => {
       title: "من نحن",
       subtitle: "نبني رؤيتك ونسعى نحو التميز",
       description:
-        "تنفذ شركة سعد وافي مشاريع سكنية وتجارية وصناعية بأعلى معايير الجودة والالتزام.",
+        "تنفذ شركة وافي سعد مشاريع سكنية وتجارية وصناعية بأعلى معايير الجودة والالتزام.",
       tabs: [
         { title: "رسالتنا", icon: <Target className="w-4 h-4" />, content: "تقديم خدمات مقاولات متميزة مع الالتزام برضا العملاء." },
         { title: "رؤيتنا", icon: <Building className="w-4 h-4" />, content: "أن نكون رواد مجال المقاولات بمشاريع مستدامة وحديثة." },
@@ -48,10 +48,8 @@ const About = ({ lang }) => {
   }, []);
 
   useEffect(() => {
-    // Initialize cards visibility to false for each card
     setCardsVisible(Array(current.why.length).fill(false));
 
-    // Cleanup previous observers
     observersRef.current.forEach(obs => obs.disconnect());
     observersRef.current = [];
 
@@ -93,7 +91,7 @@ const About = ({ lang }) => {
       }`}
     >
       <div className="container mx-auto px-6 text-center max-w-4xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#0056B3] dark:text-blue-400 mb-2">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#0056B3] dark:text-blue-400 mb-6">
           {current.title}
           <span className="block mx-auto mt-2 w-16 h-1 bg-[#FF7A00] rounded-full"></span>
         </h2>
@@ -103,7 +101,7 @@ const About = ({ lang }) => {
         </p>
 
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-6">
+        <div className="flex flex-wrap justify-center gap-5 mb-6">
           {current.tabs.map((tab, i) => (
             <button
               key={i}

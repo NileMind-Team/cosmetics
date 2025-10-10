@@ -108,7 +108,7 @@ const Projects = ({ lang }) => {
         }`}
       >
         <div className="container mx-auto px-6 text-center max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0056B3] dark:text-blue-400 mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0056B3] dark:text-blue-400 mb-6">
             {current.title}
             <span className="block mx-auto mt-2 w-16 h-1 bg-[#FF7A00] rounded-full"></span>
           </h2>

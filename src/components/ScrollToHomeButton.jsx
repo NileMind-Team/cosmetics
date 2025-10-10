@@ -31,7 +31,7 @@ const ScrollToHomeButton = ({ lang }) => {
       onClick={scrollToHome}
       className={`
         fixed bottom-6 z-50 
-        ${lang === 'ar' ? 'right-6' : 'left-6'}
+        ${lang === 'ar' ? 'left-6' : 'right-6'}
         bg-[#FF7A00] hover:bg-[#e56a00] text-white 
         shadow-xl rounded-full p-3 transition-all duration-300
         flex items-center justify-center
