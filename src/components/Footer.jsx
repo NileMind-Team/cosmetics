@@ -77,7 +77,9 @@ const Footer = ({ lang = 'ar' }) => {
           </div>
 
           {/* Quick Links */}
-          <div className="flex justify-center">
+          <div
+            className={`flex ${lang === 'ar' ? 'justify-start' : 'justify-start'} md:justify-center`}
+          >
             <div>
               <h4 className="text-2xl font-semibold mb-4">{lang === 'ar' ? 'روابط' : 'Links'}</h4>
               <ul className="space-y-4">
