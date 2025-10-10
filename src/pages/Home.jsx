@@ -1,6 +1,7 @@
 import About from '../pages/About';
 import Services from '../pages/Services';
 import Contact from './Contact';
+import Projects from './Projects';
 import Slider from './Slider';
 
 const Home = ({ lang }) => {
@@ -11,6 +12,9 @@ const Home = ({ lang }) => {
       </section>
       <section id="about">
         <About lang={lang} />
+      </section>
+      <section id="projects">
+        <Projects lang={lang} />
       </section>
       <section id="services">
         <Services lang={lang} />

@@ -6,7 +6,6 @@ import Footer from './components/Footer';
 function App() {
   const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'en');
 
-  // حفظ اللغة في localStorage عند التغيير
   useEffect(() => {
     localStorage.setItem('lang', lang);
   }, [lang]);
