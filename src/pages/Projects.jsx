@@ -125,7 +125,6 @@ const Projects = ({ lang }) => {
         className="py-16 bg-sky-50 dark:bg-gray-800 transition-all duration-700"
       >
         <div className="container mx-auto px-6 max-w-5xl text-center">
-          {/* Section Title */}
           <h2
             className={`text-3xl md:text-4xl font-bold text-[#0056B3] dark:text-blue-400 mb-6 transition-all duration-700 ${
               visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -162,7 +161,6 @@ const Projects = ({ lang }) => {
             <span className="block mx-auto mt-2 w-10 h-1 bg-[#FF7A00] rounded-full"></span>
           </div>
 
-          {/* Category Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {categories.map((cat, index) => (
               <div
@@ -191,17 +189,19 @@ const Projects = ({ lang }) => {
         </div>
       </section>
 
-      {/* Category Modal */}
       {selectedCategory && (
         <div
           className="fixed inset-0 bg-black/80 z-[60] flex items-center justify-center p-4"
-          onClick={closeCategoryModal}
+          onClick={() => {
+            if (zoomedImageIndex === null) {
+              closeCategoryModal();
+            }
+          }}
         >
           <div
             className="relative bg-white dark:bg-gray-900 dark:text-gray-100 rounded-2xl shadow-2xl w-full max-w-6xl max-h-[75vh] flex flex-col overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Header */}
             <div className="flex justify-between items-center px-6 py-4 border-b bg-gray-100 dark:bg-gray-800 sticky top-0 z-10">
               <h3 className="text-2xl font-bold text-[#FF7A00]">
                 {lang === 'ar' ? selectedCategory.titleAr : selectedCategory.titleEn}
@@ -214,14 +214,16 @@ const Projects = ({ lang }) => {
               </button>
             </div>
 
-            {/* Scrollable Images */}
             <div className="p-6 overflow-y-auto">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {selectedCategory.images.map((img, index) => (
                   <div
                     key={index}
                     className="cursor-pointer rounded-xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300"
-                    onClick={() => openZoom(index)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openZoom(index);
+                    }}
                   >
                     <img src={img} alt="" className="w-full h-48 object-cover" />
                   </div>
@@ -230,15 +232,17 @@ const Projects = ({ lang }) => {
             </div>
           </div>
 
-          {/* Zoom Modal */}
           {zoomedImageIndex !== null && (
-            <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-[70]">
+            <div
+              className="fixed inset-0 bg-black/90 flex items-center justify-center z-[70]"
+              onClick={closeZoom}
+            >
               <img
                 src={selectedCategory.images[zoomedImageIndex]}
                 alt="Zoomed"
                 className="max-w-[90%] max-h-[80%] rounded-2xl shadow-2xl object-contain"
+                onClick={(e) => e.stopPropagation()}
               />
-              {/* Close */}
               <button
                 onClick={closeZoom}
                 className="absolute top-6 right-6 text-white hover:text-red-400"
@@ -247,15 +251,21 @@ const Projects = ({ lang }) => {
               </button>
               {/* Prev */}
               <button
-                onClick={handlePrev}
-                className="absolute left-6 bg-gray-700 hover:bg-gray-600 text-white rounded-full p-3 transition-all"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handlePrev();
+                }}
+                className="absolute left-4 md:left-6 bg-gray-700 hover:bg-gray-600 text-white rounded-full p-3 transition-all"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
               {/* Next */}
               <button
-                onClick={handleNext}
-                className="absolute right-6 bg-gray-700 hover:bg-gray-600 text-white rounded-full p-3 transition-all"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleNext();
+                }}
+                className="absolute right-4 md:right-6 bg-gray-700 hover:bg-gray-600 text-white rounded-full p-3 transition-all"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
