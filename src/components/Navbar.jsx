@@ -161,7 +161,8 @@ const Navbar = ({ lang, setLang }) => {
               ))}
             </div>
 
-            <div className="mt-8 w-full flex justify-between items-center gap-4 px-2">
+            {/* Responsive Buttons Section */}
+            <div className="mt-8 w-full flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 px-2">
               <button
                 onClick={() => setDarkMode(!darkMode)}
                 className="flex items-center justify-center gap-2 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300 flex-1"

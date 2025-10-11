@@ -1,4 +1,3 @@
-import React from 'react';
 import { Mail, MessageCircle } from 'lucide-react';
 import bg from '../Assets/footer.jpeg';
 import logo from '../Assets/logodark.png';

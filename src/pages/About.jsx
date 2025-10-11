@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Building, Users, Target, CheckCircle } from "lucide-react";
+import { useState, useEffect, useRef } from 'react';
+import { Building, Users, Target, CheckCircle } from 'lucide-react';
 
 const About = ({ lang }) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -11,38 +11,80 @@ const About = ({ lang }) => {
 
   const content = {
     en: {
-      title: "About Our Company",
-      subtitle: "Building Your Vision, Constructing Excellence",
+      title: 'About Our Company',
+      subtitle: 'Building Your Vision, Constructing Excellence',
       description:
-        "Wafi Saad Construction delivers high-quality, reliable, and innovative projects across residential, commercial, and industrial sectors.",
-      tabs: [
-        { title: "Our Mission", icon: <Target className="w-4 h-4" />, content: "Deliver exceptional construction services through quality, innovation, and client satisfaction." },
-        { title: "Our Vision", icon: <Building className="w-4 h-4" />, content: "Be a leader in the construction industry with sustainable and modern infrastructure." },
-        { title: "Our Values", icon: <Users className="w-4 h-4" />, content: "Integrity, safety, teamwork, and excellence form our foundation." },
+        'Wafi Saad Construction delivers high-quality, reliable, and innovative projects across residential, commercial, and industrial sectors, and includes:',
+      services: [
+        'Execution of all modern designs and engineering plans required for finishing works.',
+        'Electrical, plumbing, porcelain, tiles, and marble foundation and finishing works.',
+        'Gypsum board, paint, aluminum, structure, and wooden doors finishing.',
+        'Home furniture works and maintenance of public and private sites such as schools and hospitals.',
       ],
-      why: ["High-Quality Execution", "On-Time Delivery", "Competitive Pricing", "Tailored Solutions"],
+      tabs: [
+        {
+          title: 'Our Mission',
+          icon: <Target className="w-4 h-4" />,
+          content:
+            'Deliver exceptional construction services through quality, innovation, and client satisfaction.',
+        },
+        {
+          title: 'Our Vision',
+          icon: <Building className="w-4 h-4" />,
+          content:
+            'Be a leader in the construction industry with sustainable and modern infrastructure.',
+        },
+        {
+          title: 'Our Values',
+          icon: <Users className="w-4 h-4" />,
+          content: 'Integrity, safety, teamwork, and excellence form our foundation.',
+        },
+      ],
+      why: [
+        'High-Quality Execution',
+        'On-Time Delivery',
+        'Competitive Pricing',
+        'Tailored Solutions',
+      ],
     },
     ar: {
-      title: "من نحن",
-      subtitle: "نبني رؤيتك ونسعى نحو التميز",
+      title: 'نبذه عننا',
+      subtitle: 'نبني رؤيتك ونسعى نحو التميز',
       description:
-        "تنفذ شركة وافي سعد مشاريع سكنية وتجارية وصناعية بأعلى معايير الجودة والالتزام.",
-      tabs: [
-        { title: "رسالتنا", icon: <Target className="w-4 h-4" />, content: "تقديم خدمات مقاولات متميزة مع الالتزام برضا العملاء." },
-        { title: "رؤيتنا", icon: <Building className="w-4 h-4" />, content: "أن نكون رواد مجال المقاولات بمشاريع مستدامة وحديثة." },
-        { title: "قيمنا", icon: <Users className="w-4 h-4" />, content: "النزاهة، السلامة، التعاون، والتميز أساس مشاريعنا." },
+        'تنفذ شركة وافي سعد مشاريع سكنية وتجارية وصناعية بأعلى معايير الجودة والالتزام، ويشمل:',
+      services: [
+        'تنفيذ جميع التصميمات العصرية والخطط الهندسية المطلوبة في مجالات التشطيبات.',
+        'أعمال تأسيس الكهرباء والسباكة والبورسلين والبلاط والرخام.',
+        'أعمال الجيبسون بورد والدهانات والألومنيوم والإستركشر والأبواب الخشب.',
+        'أعمال الأثاث المنزلي وصيانة المواقع العامة والخاصة مثل المدارس والمستشفيات.',
       ],
-      why: ["جودة التنفيذ العالية", "تسليم في المواعيد", "أسعار تنافسية", "حلول مخصصة للمشاريع"],
+      tabs: [
+        {
+          title: 'رسالتنا',
+          icon: <Target className="w-4 h-4" />,
+          content: 'تقديم خدمات مقاولات متميزة مع الالتزام برضا العملاء.',
+        },
+        {
+          title: 'رؤيتنا',
+          icon: <Building className="w-4 h-4" />,
+          content: 'أن نكون رواد مجال المقاولات بمشاريع مستدامة وحديثة.',
+        },
+        {
+          title: 'قيمنا',
+          icon: <Users className="w-4 h-4" />,
+          content: 'النزاهة، السلامة، التعاون، والتميز أساس مشاريعنا.',
+        },
+      ],
+      why: ['جودة التنفيذ العالية', 'تسليم في المواعيد', 'أسعار تنافسية', 'حلول مخصصة للمشاريع'],
     },
   };
 
   const current = content[lang] || content.en;
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
-      { threshold: 0.1 }
-    );
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), {
+      threshold: 0.1,
+    });
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
@@ -50,14 +92,14 @@ const About = ({ lang }) => {
   useEffect(() => {
     setCardsVisible(Array(current.why.length).fill(false));
 
-    observersRef.current.forEach(obs => obs.disconnect());
+    observersRef.current.forEach((obs) => obs.disconnect());
     observersRef.current = [];
 
     const newObservers = current.why.map((_, index) => {
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
-            setCardsVisible(prev => {
+            setCardsVisible((prev) => {
               const newVisible = [...prev];
               newVisible[index] = true;
               return newVisible;
@@ -78,27 +120,37 @@ const About = ({ lang }) => {
     observersRef.current = newObservers;
 
     return () => {
-      newObservers.forEach(obs => obs.disconnect());
+      newObservers.forEach((obs) => obs.disconnect());
     };
   }, [current.why.length]);
 
   return (
     <section
       ref={sectionRef}
-      dir={lang === "ar" ? "rtl" : "ltr"}
+      dir={lang === 'ar' ? 'rtl' : 'ltr'}
       className={`py-16 bg-gray-50 dark:bg-gray-900 transition-all duration-700 ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
       }`}
     >
-      <div className="container mx-auto px-6 text-center max-w-4xl">
+      <div className="container mx-auto px-6 text-center max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold text-[#0056B3] dark:text-blue-400 mb-6">
           {current.title}
           <span className="block mx-auto mt-2 w-16 h-1 bg-[#FF7A00] rounded-full"></span>
         </h2>
         <p className="text-lg text-[#FF7A00] font-semibold mb-4">{current.subtitle}</p>
-        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-8">
+
+        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
           {current.description}
         </p>
+
+        <div className="flex flex-col items-start md:items-center gap-2 text-gray-700 dark:text-gray-300 text-sm mb-10">
+          {current.services.map((service, index) => (
+            <div key={index} className="flex items-start gap-2">
+              <CheckCircle className="w-4 h-4 text-[#FF7A00] mt-0.5 flex-shrink-0" />
+              <span>{service}</span>
+            </div>
+          ))}
+        </div>
 
         {/* Tabs */}
         <div className="flex flex-wrap justify-center gap-5 mb-6">
@@ -108,8 +160,8 @@ const About = ({ lang }) => {
               onClick={() => setActiveTab(i)}
               className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full border text-sm transition-all duration-300 ${
                 activeTab === i
-                  ? "bg-[#FF7A00] text-white border-[#FF7A00] scale-105"
-                  : "bg-transparent text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-[#FF7A00] dark:hover:border-[#FF7A00] hover:scale-105"
+                  ? 'bg-[#FF7A00] text-white border-[#FF7A00] scale-105'
+                  : 'bg-transparent text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-[#FF7A00] dark:hover:border-[#FF7A00] hover:scale-105'
               }`}
             >
               {tab.icon}
@@ -128,17 +180,17 @@ const About = ({ lang }) => {
         {/* Why choose us */}
         <div className="mt-8">
           <h3 className="text-xl font-bold text-[#0056B3] dark:text-blue-400 mb-4">
-            {lang === "ar" ? "لماذا تختارنا؟" : "Why Choose Us?"}
+            {lang === 'ar' ? 'لماذا تختارنا؟' : 'Why Choose Us?'}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {current.why.map((item, i) => (
               <div
                 key={i}
-                ref={el => cardsRef.current[i] = el}
+                ref={(el) => (cardsRef.current[i] = el)}
                 className={`flex items-center gap-2 bg-white dark:bg-gray-800 p-3 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 text-sm transition-all duration-500 transform ${
-                  cardsVisible[i] 
-                    ? "opacity-100 translate-y-0 scale-100" 
-                    : "opacity-0 translate-y-4 scale-95"
+                  cardsVisible[i]
+                    ? 'opacity-100 translate-y-0 scale-100'
+                    : 'opacity-0 translate-y-4 scale-95'
                 }`}
                 style={{ transitionDelay: `${i * 100}ms` }}
               >

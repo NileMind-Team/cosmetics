@@ -108,20 +108,20 @@ const Contact = ({ lang }) => {
             : "Have any questions or need more information? We're happy to hear from you anytime."}
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8 mt-12">
+        <div className="flex flex-col md:flex-row gap-8 mt-12">
           {/* Left Side: Contact Info */}
           <div
             ref={contactInfoRef}
-            className={`flex flex-col justify-center space-y-5 text-gray-700 dark:text-gray-300 transition-all duration-700 transform ${
+            className={`flex-1 flex flex-col justify-center space-y-5 text-gray-700 dark:text-gray-300 transition-all duration-700 transform ${
               elementsVisible.contactInfo ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{ transitionDelay: '100ms' }}
           >
-            <div className="bg-white dark:bg-gray-900 p-4 sm:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 hover:scale-105">
+            <div className="bg-white dark:bg-gray-900 p-6 sm:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 hover:scale-105 w-full">
               <div className="flex items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2">
                 <MapPin className="text-[#FF7A00] flex-shrink-0" />
                 <span>
-                  {lang === 'ar' ? 'الرياض، المملكة العربية السعودية' : 'Riyadh, Saudi Arabia'}
+                  {lang === 'ar' ? 'بريدة، المملكة العربية السعودية' : 'Buraidah, Saudi Arabia'}
                 </span>
               </div>
 
@@ -145,14 +145,17 @@ const Contact = ({ lang }) => {
                   className="flex items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2"
                 >
                   <Mail className="text-[#FF7A00] flex-shrink-0" />
-                  <a href={`mailto:${email}`} className="hover:text-[#FF7A00] transition-colors">
+                  <a
+                    href={`mailto:${email}`}
+                    className="hover:text-[#FF7A00] transition-colors break-all"
+                  >
                     {email}
                   </a>
                 </div>
               ))}
 
               {/* Tax Registration Number */}
-              <div className="flex items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2">
+              <div className="flex flex-wrap items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2">
                 <span className="font-semibold text-[#FF7A00]">
                   {lang === 'ar' ? 'رقم التسجيل الضريبي:' : 'Tax Registration No:'}
                 </span>
@@ -164,7 +167,7 @@ const Contact = ({ lang }) => {
           {/* Right Side: Contact Form */}
           <div
             ref={contactFormRef}
-            className={`bg-white dark:bg-gray-900 p-4 sm:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-700 transform ${
+            className={`flex-1 bg-white dark:bg-gray-900 p-6 sm:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-700 transform ${
               elementsVisible.contactForm ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{ transitionDelay: '200ms' }}
