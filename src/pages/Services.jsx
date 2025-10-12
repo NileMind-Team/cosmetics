@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { HardHat, Hammer, Home } from "lucide-react";
 
 const Services = ({ lang }) => {
