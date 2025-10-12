@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, ChevronLeft, ChevronRight, Hammer, Layers, Brush } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Hammer, Layers } from 'lucide-react';
 
 const Projects = ({ lang }) => {
   const [visible, setVisible] = useState(false);
@@ -19,7 +19,7 @@ const Projects = ({ lang }) => {
     ar: {
       title: 'مشاريعنا',
       subtitle: 'عرض لأبرز مشاريعنا في البناء والتشطيب',
-      description: 'اكتشف تنوع مشاريعنا في مجالات التشطيب، الجبس بورد، الدهانات، والأرضيات.',
+      description: 'اكتشف تنوع مشاريعنا في مجالات البناء والتشطيبات المختلفة.',
       viewText: 'عرض المشاريع',
       featured: 'مشروع مميز',
       close: 'إغلاق',
@@ -31,6 +31,35 @@ const Projects = ({ lang }) => {
 
   const categories = [
     {
+      id: 'construction',
+      titleAr: 'أعمال البناء',
+      titleEn: 'Construction Works',
+      icon: <Layers className="w-10 h-10 text-[#FF7A00] mb-2" />,
+      cover: require('../Assets/project62.jpg'),
+      images: [
+        require('../Assets/project49.jpg'),
+        require('../Assets/project50.jpg'),
+        require('../Assets/project51.jpg'),
+        require('../Assets/project52.jpg'),
+        require('../Assets/project53.jpg'),
+        require('../Assets/project54.jpg'),
+        require('../Assets/project55.jpg'),
+        require('../Assets/project56.jpg'),
+        require('../Assets/project57.jpg'),
+        require('../Assets/project58.jpg'),
+        require('../Assets/project59.jpg'),
+        require('../Assets/project60.jpg'),
+        require('../Assets/project61.jpg'),
+        require('../Assets/project62.jpg'),
+        require('../Assets/project63.jpg'),
+        require('../Assets/project64.jpg'),
+        require('../Assets/project65.jpg'),
+        require('../Assets/project66.jpg'),
+        require('../Assets/project67.jpg'),
+        require('../Assets/project68.jpg'),
+      ],
+    },
+    {
       id: 'finishing',
       titleAr: 'أعمال التشطيب',
       titleEn: 'Finishing Works',
@@ -40,49 +69,51 @@ const Projects = ({ lang }) => {
         require('../Assets/project1.jpg'),
         require('../Assets/project2.jpg'),
         require('../Assets/project3.jpg'),
-        require('../Assets/project10.jpg'),
-        require('../Assets/project11.jpg'),
-        require('../Assets/project12.jpg'),
-        require('../Assets/project27.jpg'),
-        require('../Assets/project28.jpg'),
-        require('../Assets/project29.jpg'),
-        require('../Assets/project30.jpg'),
-        require('../Assets/project31.jpg'),
-      ],
-    },
-    {
-      id: 'gypsum',
-      titleAr: 'الجبس بورد',
-      titleEn: 'Gypsum Board',
-      icon: <Layers className="w-10 h-10 text-[#FF7A00] mb-2" />,
-      cover: require('../Assets/project19.jpg'),
-      images: [
-        require('../Assets/project19.jpg'),
-        require('../Assets/project16.jpg'),
-        require('../Assets/project17.jpg'),
-        require('../Assets/project18.jpg'),
-        require('../Assets/project20.jpg'),
-        require('../Assets/project21.jpg'),
-      ],
-    },
-    {
-      id: 'painting',
-      titleAr: 'الدهانات',
-      titleEn: 'Painting Works',
-      icon: <Brush className="w-10 h-10 text-[#FF7A00] mb-2" />,
-      cover: require('../Assets/project8.jpg'),
-      images: [
+        require('../Assets/project4.jpg'),
+        require('../Assets/project5.jpg'),
+        require('../Assets/project6.jpg'),
         require('../Assets/project7.jpg'),
         require('../Assets/project8.jpg'),
         require('../Assets/project9.jpg'),
+        require('../Assets/project10.jpg'),
+        require('../Assets/project11.jpg'),
+        require('../Assets/project12.jpg'),
         require('../Assets/project13.jpg'),
         require('../Assets/project14.jpg'),
         require('../Assets/project15.jpg'),
+        require('../Assets/project16.jpg'),
+        require('../Assets/project17.jpg'),
+        require('../Assets/project18.jpg'),
+        require('../Assets/project19.jpg'),
+        require('../Assets/project20.jpg'),
+        require('../Assets/project21.jpg'),
+        require('../Assets/project27.jpg'),
+        require('../Assets/project28.jpg'),
         require('../Assets/project22.jpg'),
         require('../Assets/project23.jpg'),
         require('../Assets/project24.jpg'),
         require('../Assets/project25.jpg'),
         require('../Assets/project26.jpg'),
+        require('../Assets/project29.jpg'),
+        require('../Assets/project30.jpg'),
+        require('../Assets/project31.jpg'),
+        require('../Assets/project32.jpg'),
+        require('../Assets/project33.jpg'),
+        require('../Assets/project34.jpg'),
+        require('../Assets/project35.jpg'),
+        require('../Assets/project36.jpg'),
+        require('../Assets/project37.jpg'),
+        require('../Assets/project38.jpg'),
+        require('../Assets/project39.jpg'),
+        require('../Assets/project40.jpg'),
+        require('../Assets/project41.jpg'),
+        require('../Assets/project42.jpg'),
+        require('../Assets/project43.jpg'),
+        require('../Assets/project44.jpg'),
+        require('../Assets/project45.jpg'),
+        require('../Assets/project46.jpg'),
+        require('../Assets/project47.jpg'),
+        require('../Assets/project48.jpg'),
       ],
     },
   ];
@@ -161,12 +192,12 @@ const Projects = ({ lang }) => {
             <span className="block mx-auto mt-2 w-10 h-1 bg-[#FF7A00] rounded-full"></span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center justify-center">
             {categories.map((cat, index) => (
               <div
                 key={cat.id}
                 onClick={() => openCategory(cat)}
-                className="relative group cursor-pointer overflow-hidden rounded-2xl shadow-lg transition-transform duration-500 hover:scale-105"
+                className="relative group cursor-pointer overflow-hidden rounded-2xl shadow-lg transition-transform duration-500 hover:scale-105 w-full max-w-[350px]"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <img
