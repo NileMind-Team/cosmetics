@@ -121,22 +121,23 @@ const Contact = ({ lang }) => {
               <div className="flex items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2">
                 <MapPin className="text-[#FF7A00] flex-shrink-0" />
                 <span>
-                  {lang === 'ar' ? 'بريدة، المملكة العربية السعودية' : 'Buraidah, Saudi Arabia'}
+                  {lang === 'ar' ? 'القصيم , المملكة العربية السعودية' : 'Al-Qassim, Saudi Arabia'}
                 </span>
               </div>
 
-              {/* WhatsApp Link */}
-              <div className="flex items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2">
-                <MessageCircle className="text-[#25D366] flex-shrink-0" />
-                <a
-                  href={`https://wa.me/${whatsappNumber}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#25D366] transition-colors"
-                >
-                  +966 50 675 1303
-                </a>
-              </div>
+                    {/* WhatsApp Link */}
+        <div className="flex items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2">
+          <MessageCircle className="text-[#25D366] flex-shrink-0" />
+          <a
+            href={`https://wa.me/${whatsappNumber}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#25D366] transition-colors"
+            dir="ltr"     
+          >
+            +966 50 675 1303
+          </a>
+        </div>
 
               {/* Emails */}
               {emails.map((email, index) => (

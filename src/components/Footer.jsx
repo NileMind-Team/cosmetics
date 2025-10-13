@@ -111,7 +111,7 @@ const Footer = ({ lang = 'ar' }) => {
               </div>
             ))}
 
-            {/* WhatsApp */}
+           {/* WhatsApp */}
             <div className="flex items-center gap-3 text-base mb-3">
               <MessageCircle className="w-6 h-6 text-[#25D366]" />
               <a
@@ -120,9 +120,17 @@ const Footer = ({ lang = 'ar' }) => {
                 rel="noopener noreferrer"
                 className="hover:text-[#25D366] transition-colors"
               >
-                {lang === 'ar' ? 'واتساب: +966 50 675 1303' : 'WhatsApp: +966 50 675 1303'}
+                {lang === "ar" ? (
+                  <>
+                     واتساب :
+                    <span dir="ltr" className="ms-1">+966 50 675 1303</span>
+                  </>
+                ) : (
+                  "WhatsApp: +966 50 675 1303"
+                )}
               </a>
             </div>
+
 
             {/* Tax Number */}
             <div className="flex items-center gap-3 text-base mt-2">
