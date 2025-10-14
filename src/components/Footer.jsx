@@ -66,12 +66,12 @@ const Footer = ({ lang = 'ar' }) => {
               className="w-32 h-auto"
             />
             <h3 className="text-3xl text-[#FF7A00] font-bold mt-0 mb-4">
-              {lang === 'ar' ? 'وافي التويجري' : 'Wafi Saad'}
+              {lang === 'ar' ? 'وافي التويجري' : 'Wafi Al-Tuwaijri'}
             </h3>
             <p className="text-base text-gray-200 leading-relaxed max-w-sm">
               {lang === 'ar'
                 ? 'شركة وافي التويجري للمقاولات — جودة في التنفيذ، التزام في المواعيد، وخبرة طويلة في مجال البناء والتشييد.'
-                : 'Wafi Saad Contracting — Quality in execution, commitment to deadlines, and long experience in construction.'}
+                : 'Wafi Al-Tuwaijri Contracting — Quality in execution, commitment to deadlines, and long experience in construction.'}
             </p>
           </div>
 
@@ -146,7 +146,7 @@ const Footer = ({ lang = 'ar' }) => {
         <div className="mt-12 border-t border-white/20 pt-6 text-sm text-gray-300 text-center">
           {lang === 'ar'
             ? '© 2025 وافي التويجري للمقاولات. جميع الحقوق محفوظة.'
-            : '© 2025 Wafi Saad Contracting. All rights reserved.'}
+            : '© 2025 Wafi Al-Tuwaijri Contracting. All rights reserved.'}
         </div>
       </div>
     </footer>
