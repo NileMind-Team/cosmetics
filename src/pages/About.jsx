@@ -14,7 +14,7 @@ const About = ({ lang }) => {
       title: 'About Our Company',
       subtitle: 'Building Your Vision, Constructing Excellence',
       description:
-        'Wafi Saad Construction delivers high-quality, reliable, and innovative projects across residential, commercial, and industrial sectors, and includes:',
+        'Wafi Al-Tuwaijri Construction delivers high-quality, reliable, and innovative projects across residential, commercial, and industrial sectors, and includes:',
       services: [
         'Execution of all modern designs and engineering plans required for finishing works.',
         'Electrical, plumbing, porcelain, tiles, and marble foundation and finishing works.',

@@ -62,7 +62,7 @@ const Footer = ({ lang = 'ar' }) => {
           <div className="flex flex-col items-start">
             <img
               src={logo}
-              alt={lang === 'ar' ? 'لوجو وافي التويجري' : 'Wafi Saad Logo'}
+              alt={lang === 'ar' ? 'لوجو وافي التويجري' : 'Wafi Al-Tuwaijri Logo'}
               className="w-32 h-auto"
             />
             <h3 className="text-3xl text-[#FF7A00] font-bold mt-0 mb-4">

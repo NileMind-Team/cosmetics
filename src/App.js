@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     if (lang === 'ar') {
-      document.title = 'وافي سعد للمقاولات - حلول عقارية مبتكرة';
+      document.title = 'وافي التويجري للمقاولات - حلول عقارية مبتكرة';
       document
         .querySelector('meta[name="description"]')
         ?.setAttribute(
@@ -18,7 +18,7 @@ function App() {
           'وافي سعد للمقاولات - بيع، شراء وتأجير العقارات في السعودية مع حلول مبتكرة وموثوقة تناسب احتياجاتك العقارية.'
         );
     } else {
-      document.title = 'Wafi Saad Contracting - Innovative Real Estate Solutions';
+      document.title = 'Wafi Al-Tuwaijri Contracting - Innovative Real Estate Solutions';
       document
         .querySelector('meta[name="description"]')
         ?.setAttribute(

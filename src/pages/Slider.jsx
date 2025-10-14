@@ -21,7 +21,7 @@ const Slider = ({ lang }) => {
         id: 2,
         title: 'Our Projects Reflect Excellence',
         subtitle:
-          'From concept to completion, Wafi Saad Real Estate delivers projects that combine innovation and trust.',
+          'From concept to completion, Wafi Al-Tuwaijri Real Estate delivers projects that combine innovation and trust.',
         image: slide2,
         buttonText: 'Learn More',
         targetId: 'projects',
