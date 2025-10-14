@@ -62,15 +62,15 @@ const Footer = ({ lang = 'ar' }) => {
           <div className="flex flex-col items-start">
             <img
               src={logo}
-              alt={lang === 'ar' ? 'لوجو وافي سعد' : 'Wafi Saad Logo'}
+              alt={lang === 'ar' ? 'لوجو وافي التويجري' : 'Wafi Saad Logo'}
               className="w-32 h-auto"
             />
             <h3 className="text-3xl text-[#FF7A00] font-bold mt-0 mb-4">
-              {lang === 'ar' ? 'وافي سعد' : 'Wafi Saad'}
+              {lang === 'ar' ? 'وافي التويجري' : 'Wafi Saad'}
             </h3>
             <p className="text-base text-gray-200 leading-relaxed max-w-sm">
               {lang === 'ar'
-                ? 'شركة وافي سعد للمقاولات — جودة في التنفيذ، التزام في المواعيد، وخبرة طويلة في مجال البناء والتشييد.'
+                ? 'شركة وافي التويجري للمقاولات — جودة في التنفيذ، التزام في المواعيد، وخبرة طويلة في مجال البناء والتشييد.'
                 : 'Wafi Saad Contracting — Quality in execution, commitment to deadlines, and long experience in construction.'}
             </p>
           </div>
@@ -145,7 +145,7 @@ const Footer = ({ lang = 'ar' }) => {
         {/* Footer Bottom */}
         <div className="mt-12 border-t border-white/20 pt-6 text-sm text-gray-300 text-center">
           {lang === 'ar'
-            ? '© 2025 وافي سعد للمقاولات. جميع الحقوق محفوظة.'
+            ? '© 2025 وافي التويجري للمقاولات. جميع الحقوق محفوظة.'
             : '© 2025 Wafi Saad Contracting. All rights reserved.'}
         </div>
       </div>
