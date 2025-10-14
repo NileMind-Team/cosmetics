@@ -15,7 +15,7 @@ function App() {
         .querySelector('meta[name="description"]')
         ?.setAttribute(
           'content',
-          'وافي سعد للمقاولات - بيع، شراء وتأجير العقارات في السعودية مع حلول مبتكرة وموثوقة تناسب احتياجاتك العقارية.'
+          'وافي التويجري للمقاولات - بيع، شراء وتأجير العقارات في السعودية مع حلول مبتكرة وموثوقة تناسب احتياجاتك العقارية.'
         );
     } else {
       document.title = 'Wafi Al-Tuwaijri Contracting - Innovative Real Estate Solutions';
@@ -23,7 +23,7 @@ function App() {
         .querySelector('meta[name="description"]')
         ?.setAttribute(
           'content',
-          'Wafi Saad Contracting - Buy, sell, and rent properties in Saudi Arabia with innovative and trusted real estate solutions tailored to your needs.'
+          'Wafi Al-Tuwaijri Contracting - Buy, sell, and rent properties in Saudi Arabia with innovative and trusted real estate solutions tailored to your needs.'
         );
     }
   }, [lang]);
