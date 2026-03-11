@@ -1,24 +1,25 @@
-import { Mail, MessageCircle } from 'lucide-react';
+import { Mail, MessageCircle, Instagram, Phone } from 'lucide-react';
 import bg from '../Assets/footer.jpeg';
 import logo from '../Assets/logodark.png';
 
 const Footer = ({ lang = 'ar' }) => {
-  const whatsappNumber = '966506751303';
-  const emails = ['genralpedwi@gmail.com', 'sdwr2000@gmail.com'];
-  const taxNumber = '312864606400003';
+  const whatsappNumber = '201062485133';
+  const phoneNumber = '+20 106 248 5133';
+  const emails = ['support@beautybrand.com'];
+  const instagramHandle = '@beautybrand_official';
 
   const quickLinks = {
     ar: [
       { label: 'الرئيسية', href: 'home' },
-      { label: 'من نحن', href: 'about' },
-      { label: 'المشاريع', href: 'projects' },
+      { label: 'عن العلامة', href: 'about' },
+      { label: 'المجموعات', href: 'projects' },
       { label: 'الخدمات', href: 'services' },
       { label: 'تواصل معنا', href: 'contact' },
     ],
     en: [
       { label: 'Home', href: 'home' },
       { label: 'About', href: 'about' },
-      { label: 'Projects', href: 'projects' },
+      { label: 'Collections', href: 'projects' },
       { label: 'Services', href: 'services' },
       { label: 'Contact', href: 'contact' },
     ],
@@ -62,16 +63,16 @@ const Footer = ({ lang = 'ar' }) => {
           <div className="flex flex-col items-start">
             <img
               src={logo}
-              alt={lang === 'ar' ? 'لوجو وافي التويجري' : 'Wafi Al-Tuwaijri Logo'}
-              className="w-32 h-auto"
+              alt={lang === 'ar' ? 'لوجو العلامة التجارية' : 'Beauty Brand Logo'}
+              className="w-16 h-auto mb-2"
             />
-            <h3 className="text-3xl text-[#FF7A00] font-bold mt-0 mb-4">
-              {lang === 'ar' ? 'وافي التويجري' : 'Wafi Al-Tuwaijri'}
+            <h3 className="text-3xl text-[#D62E7C] font-bold mt-0 mb-4">
+              {lang === 'ar' ? 'بيوتي براند' : 'Beauty Brand'}
             </h3>
             <p className="text-base text-gray-200 leading-relaxed max-w-sm">
               {lang === 'ar'
-                ? 'شركة وافي التويجري للمقاولات — جودة في التنفيذ، التزام في المواعيد، وخبرة طويلة في مجال البناء والتشييد.'
-                : 'Wafi Al-Tuwaijri Contracting — Quality in execution, commitment to deadlines, and long experience in construction.'}
+                ? 'علامتنا التجارية المتخصصة في مستحضرات التجميل والعناية بالبشرة — نقدم منتجات عالية الجودة تجمع بين الابتكار والمكونات الطبيعية لإبراز جمالك الطبيعي.'
+                : 'Our premium cosmetics and skincare brand — delivering high-quality products that combine innovation with natural ingredients to enhance your natural beauty.'}
             </p>
           </div>
 
@@ -80,12 +81,12 @@ const Footer = ({ lang = 'ar' }) => {
             className={`flex ${lang === 'ar' ? 'justify-start' : 'justify-start'} md:justify-center`}
           >
             <div>
-              <h4 className="text-2xl font-semibold mb-4">{lang === 'ar' ? 'روابط' : 'Links'}</h4>
+              <h4 className="text-2xl font-semibold mb-4">{lang === 'ar' ? 'روابط سريعة' : 'Quick Links'}</h4>
               <ul className="space-y-4">
                 {quickLinks[lang].map((link) => (
                   <li
                     key={link.label}
-                    className="cursor-pointer text-gray-200 hover:text-[#FF7A00] transition-colors text-base"
+                    className="cursor-pointer text-gray-200 hover:text-[#D62E7C] transition-colors text-base"
                     onClick={() => handleScroll(link.href)}
                   >
                     • {link.label}
@@ -101,17 +102,38 @@ const Footer = ({ lang = 'ar' }) => {
               {lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}
             </h4>
 
+            {/* Phone */}
+            <div className="flex items-center gap-3 text-base mb-3">
+              <Phone className="w-6 h-6 text-[#D62E7C]" />
+              <a href={`tel:${phoneNumber}`} className="hover:text-[#D62E7C] transition-colors" dir="ltr">
+                {phoneNumber}
+              </a>
+            </div>
+
             {/* Emails */}
             {emails.map((email) => (
               <div key={email} className="flex items-center gap-3 text-base mb-3">
-                <Mail className="w-6 h-6 text-[#FF7A00]" />
-                <a href={`mailto:${email}`} className="hover:text-[#FF7A00] transition-colors">
+                <Mail className="w-6 h-6 text-[#D62E7C]" />
+                <a href={`mailto:${email}`} className="hover:text-[#D62E7C] transition-colors">
                   {email}
                 </a>
               </div>
             ))}
 
-           {/* WhatsApp */}
+            {/* Instagram */}
+            <div className="flex items-center gap-3 text-base mb-3">
+              <Instagram className="w-6 h-6 text-[#D62E7C]" />
+              <a
+                href="https://instagram.com/beautybrand"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#D62E7C] transition-colors"
+              >
+                {instagramHandle}
+              </a>
+            </div>
+
+            {/* WhatsApp */}
             <div className="flex items-center gap-3 text-base mb-3">
               <MessageCircle className="w-6 h-6 text-[#25D366]" />
               <a
@@ -123,21 +145,12 @@ const Footer = ({ lang = 'ar' }) => {
                 {lang === "ar" ? (
                   <>
                      واتساب :
-                    <span dir="ltr" className="ms-1">+966 50 675 1303</span>
+                    <span dir="ltr" className="ms-1">{phoneNumber}</span>
                   </>
                 ) : (
-                  "WhatsApp: +966 50 675 1303"
+                  `WhatsApp: ${phoneNumber}`
                 )}
               </a>
-            </div>
-
-
-            {/* Tax Number */}
-            <div className="flex items-center gap-3 text-base mt-2">
-              <span className="font-semibold text-[#FF7A00]">
-                {lang === 'ar' ? 'رقم التسجيل الضريبي:' : 'Tax Registration No:'}
-              </span>
-              <span className="text-gray-200">{taxNumber}</span>
             </div>
           </div>
         </div>
@@ -145,8 +158,8 @@ const Footer = ({ lang = 'ar' }) => {
         {/* Footer Bottom */}
         <div className="mt-12 border-t border-white/20 pt-6 text-sm text-gray-300 text-center">
           {lang === 'ar'
-            ? '© 2025 وافي التويجري للمقاولات. جميع الحقوق محفوظة.'
-            : '© 2025 Wafi Al-Tuwaijri Contracting. All rights reserved.'}
+            ? '© 2026 بيوتي براند. جميع الحقوق محفوظة.'
+            : '© 2026 Beauty Brand. All rights reserved.'}
         </div>
       </div>
     </footer>

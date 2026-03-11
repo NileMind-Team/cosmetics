@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Building, Users, Target, CheckCircle } from 'lucide-react';
+import { Sparkles, Heart, CheckCircle, Feather } from 'lucide-react';
 
 const About = ({ lang }) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -11,71 +11,69 @@ const About = ({ lang }) => {
 
   const content = {
     en: {
-      title: 'About Our Company',
-      subtitle: 'Building Your Vision, Constructing Excellence',
+      title: 'About Our Brand',
+      subtitle: 'Enhancing Beauty, Celebrating Individuality',
       description:
-        'Wafi Al-Tuwaijri Construction delivers high-quality, reliable, and innovative projects across residential, commercial, and industrial sectors, and includes:',
+        'We are a premium cosmetics brand dedicated to bringing out your natural glow. Our products are crafted with care, combining innovation with the finest ingredients to create makeup and skincare that you can trust. Our range includes:',
       services: [
-        'Execution of all modern designs and engineering plans required for finishing works.',
-        'Electrical, plumbing, porcelain, tiles, and marble foundation and finishing works.',
-        'Gypsum board, paint, aluminum, structure, and wooden doors finishing.',
-        'Home furniture works and maintenance of public and private sites such as schools and hospitals.',
+        'Luxurious foundations and concealers for flawless coverage.',
+        'Vibrant lipsticks, eyeshadows, and blushes for every mood.',
+        'Nourishing skincare serums, moisturizers, and cleansers.',
+        'High-quality brushes and tools for a professional finish.',
       ],
       tabs: [
         {
           title: 'Our Mission',
-          icon: <Target className="w-4 h-4" />,
-          content:
-            'Deliver exceptional construction services through quality, innovation, and client satisfaction.',
+          icon: <Sparkles className="w-4 h-4" />,
+          content: 'To empower everyone to express their unique beauty with high-quality, inclusive, and innovative cosmetics.',
         },
         {
           title: 'Our Vision',
-          icon: <Building className="w-4 h-4" />,
-          content:
-            'Be a leader in the construction industry with sustainable and modern infrastructure.',
+          icon: <Feather className="w-4 h-4" />,
+          content: 'To become a globally loved brand that sets new standards in beauty through creativity and sustainability.',
         },
         {
           title: 'Our Values',
-          icon: <Users className="w-4 h-4" />,
-          content: 'Integrity, safety, teamwork, and excellence form our foundation.',
+          icon: <Heart className="w-4 h-4" />,
+          content: 'Inclusivity, quality, cruelty-free practices, and customer love are at the heart of everything we do.',
         },
       ],
       why: [
-        'High-Quality Execution',
-        'On-Time Delivery',
-        'Competitive Pricing',
-        'Tailored Solutions',
+        '100% Cruelty-Free',
+        'High-Quality Ingredients',
+        'Inclusive Shades for All',
+        'Innovative Formulas',
       ],
     },
     ar: {
-      title: 'نبذه عننا',
-      subtitle: 'نبني رؤيتك ونسعى نحو التميز',
+      title: 'عن علامتنا التجارية',
+      subtitle: 'نعزز الجمال، نحتفل بالتميز',
       description:
-        'تنفذ شركة وافي التويجري مشاريع سكنية وتجارية وصناعية بأعلى معايير الجودة والالتزام، ويشمل:',
+        'نحن علامة تجارية راقية في مجال مستحضرات التجميل، ملتزمون بإبراز إشراقتك الطبيعية. تُصنع منتجاتنا بعناية، لتمزج بين الابتكار وأرقى المكونات لصنع مكياج ومنتجات عناية بالبشرة يمكنك الوثوق بها. تشمل مجموعتنا:',
       services: [
-        'تنفيذ جميع التصميمات العصرية والخطط الهندسية المطلوبة في مجالات التشطيبات.',
-        'أعمال تأسيس الكهرباء والسباكة والبورسلين والبلاط والرخام.',
-        'أعمال الجيبسون بورد والدهانات والألومنيوم والإستركشر والأبواب الخشب.',
-        'أعمال الأثاث المنزلي وصيانة المواقع العامة والخاصة مثل المدارس والمستشفيات.',
+        'كريمات أساس وأقلام تصحيح فاخرة لتغطية خالية من العيوب.',
+        'أحمر شفاه، وظلال عيون، وبلاشر بألوان زاهية تناسب كل الأوقات.',
+        'أمصال وكريمات مرطبة ومنظفات مغذية للبشرة.',
+        'فرش وأدوات عالية الجودة للحصول على إطلالة احترافية.',
       ],
       tabs: [
         {
           title: 'رسالتنا',
-          icon: <Target className="w-4 h-4" />,
-          content: 'تقديم خدمات مقاولات متميزة مع الالتزام برضا العملاء.',
+          icon: <Sparkles className="w-4 h-4" />,
+          content: 'تمكين الجميع من التعبير عن جمالهم الفريد من خلال مستحضرات تجميل عالية الجودة وشاملة ومبتكرة.',
         },
         {
           title: 'رؤيتنا',
-          icon: <Building className="w-4 h-4" />,
-          content: 'أن نكون رواد مجال المقاولات بمشاريع مستدامة وحديثة.',
+          icon: <Feather className="w-4 h-4" />,
+          content: 'أن نصبح علامة تجارية محبوبة عالمياً تضع معايير جديدة في عالم الجمال من خلال الإبداع والاستدامة.',
         },
         {
           title: 'قيمنا',
-          icon: <Users className="w-4 h-4" />,
-          content: 'النزاهة، السلامة، التعاون، والتميز أساس مشاريعنا.',
+          icon: <Heart className="w-4 h-4" />,
+          content: 'الشمولية، الجودة، الممارسات الخالية من القسوة على الحيوانات، وحب العملاء هي أساس كل ما نقوم به.',
         },
       ],
-      why: ['جودة التنفيذ العالية', 'تسليم في المواعيد', 'أسعار تنافسية', 'حلول مخصصة للمشاريع'],
+      why: ['خالٍ من القسوة ١٠٠٪', 'مكونات عالية الجودة', 'درجات ألوان تناسب الجميع', 'تركيبات مبتكرة'],
     },
   };
 
@@ -122,22 +120,23 @@ const About = ({ lang }) => {
     return () => {
       newObservers.forEach((obs) => obs.disconnect());
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [current.why.length]);
 
   return (
     <section
       ref={sectionRef}
       dir={lang === 'ar' ? 'rtl' : 'ltr'}
-      className={`py-16 bg-gray-50 dark:bg-gray-900 transition-all duration-700 ${
+      className={`py-16 bg-gradient-to-b from-pink-50 to-white dark:from-gray-900 dark:to-gray-800 transition-all duration-700 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
       }`}
     >
       <div className="container mx-auto px-6 text-center max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#0056B3] dark:text-blue-400 mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#D62E7C] dark:text-pink-400 mb-6">
           {current.title}
-          <span className="block mx-auto mt-2 w-16 h-1 bg-[#FF7A00] rounded-full"></span>
+          <span className="block mx-auto mt-2 w-16 h-1 bg-[#D62E7C] rounded-full"></span>
         </h2>
-        <p className="text-lg text-[#FF7A00] font-semibold mb-4">{current.subtitle}</p>
+        <p className="text-lg text-[#D62E7C] font-semibold mb-4">{current.subtitle}</p>
 
         <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
           {current.description}
@@ -146,7 +145,7 @@ const About = ({ lang }) => {
         <div className="flex flex-col items-start md:items-center gap-2 text-gray-700 dark:text-gray-300 text-sm mb-10">
           {current.services.map((service, index) => (
             <div key={index} className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-[#FF7A00] mt-0.5 flex-shrink-0" />
+              <CheckCircle className="w-4 h-4 text-[#D62E7C] mt-0.5 flex-shrink-0" />
               <span>{service}</span>
             </div>
           ))}
@@ -160,8 +159,8 @@ const About = ({ lang }) => {
               onClick={() => setActiveTab(i)}
               className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full border text-sm transition-all duration-300 ${
                 activeTab === i
-                  ? 'bg-[#FF7A00] text-white border-[#FF7A00] scale-105'
-                  : 'bg-transparent text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-[#FF7A00] dark:hover:border-[#FF7A00] hover:scale-105'
+                  ? 'bg-[#D62E7C] text-white border-[#D62E7C] scale-105'
+                  : 'bg-transparent text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-[#D62E7C] dark:hover:border-[#D62E7C] hover:scale-105'
               }`}
             >
               {tab.icon}
@@ -171,7 +170,7 @@ const About = ({ lang }) => {
         </div>
 
         {/* Tab Content */}
-        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm mb-8 border-l-4 border-[#FF7A00] transition-all duration-500 hover:shadow-md">
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm mb-8 border-l-4 border-[#D62E7C] transition-all duration-500 hover:shadow-md">
           <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
             {current.tabs[activeTab].content}
           </p>
@@ -179,8 +178,8 @@ const About = ({ lang }) => {
 
         {/* Why choose us */}
         <div className="mt-8">
-          <h3 className="text-xl font-bold text-[#0056B3] dark:text-blue-400 mb-4">
-            {lang === 'ar' ? 'لماذا تختارنا؟' : 'Why Choose Us?'}
+          <h3 className="text-xl font-bold text-[#D62E7C] dark:text-pink-400 mb-4">
+            {lang === 'ar' ? 'لماذا تختار منتجاتنا؟' : 'Why Choose Us?'}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {current.why.map((item, i) => (
@@ -194,7 +193,7 @@ const About = ({ lang }) => {
                 }`}
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
-                <div className="bg-[#FF7A00] w-6 h-6 flex items-center justify-center rounded-full">
+                <div className="bg-[#D62E7C] w-6 h-6 flex items-center justify-center rounded-full">
                   <CheckCircle className="w-3 h-3 text-white" />
                 </div>
                 <span className="text-gray-700 dark:text-gray-300">{item}</span>

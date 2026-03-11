@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { HardHat, Hammer, Home } from "lucide-react";
+import { Sparkles, Droplet, Heart } from "lucide-react";
 
 const Services = ({ lang }) => {
   const [visible, setVisible] = useState(false);
@@ -47,6 +47,7 @@ const Services = ({ lang }) => {
     });
 
     return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       cardsRef.current.forEach((card, index) => {
         if (card) cardObservers[index].unobserve(card);
       });
@@ -61,45 +62,45 @@ const Services = ({ lang }) => {
   const content = {
     en: {
       title: "Our Services",
-      subtitle: "High-quality Construction & Engineering",
-      description: "We offer a full range of construction and engineering services with top quality.",
+      subtitle: "Premium Beauty & Skincare",
+      description: "Discover our range of professional beauty services designed to enhance your natural glow.",
       items: [
         {
-          icon: <HardHat className="w-12 h-12 text-[#FF7A00] mx-auto mb-4" />,
-          title: "Building Foundations",
-          desc: "High-quality foundation works for residential and commercial buildings.",
+          icon: <Sparkles className="w-12 h-12 text-[#D62E7C] mx-auto mb-4" />,
+          title: "Makeup Artistry",
+          desc: "Professional makeup services for all occasions, from natural looks to glamorous transformations.",
         },
         {
-          icon: <Hammer className="w-12 h-12 text-[#FF7A00] mx-auto mb-4" />,
-          title: "Finishing & Decoration",
-          desc: "Interior and exterior finishing with modern design and quality.",
+          icon: <Droplet className="w-12 h-12 text-[#D62E7C] mx-auto mb-4" />,
+          title: "Skincare Treatments",
+          desc: "Advanced facial treatments and skincare routines tailored to your skin type.",
         },
         {
-          icon: <Home className="w-12 h-12 text-[#FF7A00] mx-auto mb-4" />,
-          title: "Engineering Design",
-          desc: "Professional design services using the latest tools and standards.",
+          icon: <Heart className="w-12 h-12 text-[#D62E7C] mx-auto mb-4" />,
+          title: "Beauty Consultations",
+          desc: "Personalized beauty consultations to help you choose the perfect products for your needs.",
         },
       ],
     },
     ar: {
       title: "خدماتنا",
-      subtitle: "خدمات مقاولات وتصميم هندسي عالية الجودة",
-      description: "نقدم مجموعة متكاملة من الخدمات الهندسية والمقاولات بأعلى جودة.",
+      subtitle: "خدمات تجميل وعناية بالبشرة فاخرة",
+      description: "اكتشفي مجموعتنا من خدمات التجميل الاحترافية المصممة لإبراز إشراقتك الطبيعية.",
       items: [
         {
-          icon: <HardHat className="w-12 h-12 text-[#FF7A00] mx-auto mb-4" />,
-          title: "تأسيس المباني",
-          desc: "أعمال تأسيس عالية الجودة للمباني السكنية والتجارية.",
+          icon: <Sparkles className="w-12 h-12 text-[#D62E7C] mx-auto mb-4" />,
+          title: "فن المكياج",
+          desc: "خدمات مكياج احترافية لجميع المناسبات، من الإطلالات الطبيعية إلى التحولات الساحرة.",
         },
         {
-          icon: <Hammer className="w-12 h-12 text-[#FF7A00] mx-auto mb-4" />,
-          title: "تشطيب وديكور",
-          desc: "تشطيبات داخلية وخارجية بتصميم حديث وبجودة عالية.",
+          icon: <Droplet className="w-12 h-12 text-[#D62E7C] mx-auto mb-4" />,
+          title: "علاجات البشرة",
+          desc: "علاجات وجه متقدمة وروتين عناية بالبشرة مصمم خصيصاً لنوع بشرتك.",
         },
         {
-          icon: <Home className="w-12 h-12 text-[#FF7A00] mx-auto mb-4" />,
-          title: "تصميم هندسي",
-          desc: "خدمات التصميم الهندسي المحترف باستخدام أحدث الأدوات والمعايير.",
+          icon: <Heart className="w-12 h-12 text-[#D62E7C] mx-auto mb-4" />,
+          title: "استشارات تجميل",
+          desc: "استشارات تجميل شخصية لمساعدتك في اختيار المنتجات المثالية لاحتياجاتك.",
         },
       ],
     },
@@ -111,16 +112,16 @@ const Services = ({ lang }) => {
     <section
       ref={sectionRef}
       dir={lang === "ar" ? "rtl" : "ltr"}
-      className={`py-16 bg-gray-50 dark:bg-gray-900 transition-all duration-700 ${
+      className={`py-16 bg-gradient-to-b from-pink-50 to-white dark:from-gray-900 dark:to-gray-800 transition-all duration-700 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
     >
       <div className="container mx-auto px-6 text-center max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#0056B3] dark:text-blue-400 mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#D62E7C] dark:text-pink-400 mb-6">
           {current.title}
-          <span className="block mx-auto mt-2 w-16 h-1 bg-[#FF7A00] rounded-full"></span>
+          <span className="block mx-auto mt-2 w-16 h-1 bg-[#D62E7C] rounded-full"></span>
         </h2>
-        <p className="text-lg text-[#FF7A00] font-semibold mb-4">
+        <p className="text-lg text-[#D62E7C] font-semibold mb-4">
           {current.subtitle}
         </p>
         <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-12">
@@ -132,7 +133,7 @@ const Services = ({ lang }) => {
             <div
               key={index}
               ref={el => cardsRef.current[index] = el}
-              className={`bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-700 transform ${
+              className={`bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-700 transform border border-pink-100 dark:border-gray-700 ${
                 cardsVisible[index] 
                   ? "opacity-100 translate-y-0 scale-100" 
                   : "opacity-0 translate-y-8 scale-95"

@@ -10,20 +10,20 @@ function App() {
 
   useEffect(() => {
     if (lang === 'ar') {
-      document.title = 'وافي التويجري للمقاولات - حلول عقارية مبتكرة';
+      document.title = 'بيوتي براند - جمالك يبدأ من هنا';
       document
         .querySelector('meta[name="description"]')
         ?.setAttribute(
           'content',
-          'وافي التويجري للمقاولات - بيع، شراء وتأجير العقارات في السعودية مع حلول مبتكرة وموثوقة تناسب احتياجاتك العقارية.'
+          'اكتشفي أفضل مستحضرات التجميل والعناية بالبشرة والشعر. منتجات أصلية بجودة عالية تمنحك الجمال والثقة كل يوم.'
         );
     } else {
-      document.title = 'Wafi Al-Tuwaijri Contracting - Innovative Real Estate Solutions';
+      document.title = 'Beauty Brand - Beauty Starts Here';
       document
         .querySelector('meta[name="description"]')
         ?.setAttribute(
           'content',
-          'Wafi Al-Tuwaijri Contracting - Buy, sell, and rent properties in Saudi Arabia with innovative and trusted real estate solutions tailored to your needs.'
+          'Discover the best cosmetics, skincare, and hair care products. High-quality beauty products to enhance your natural beauty every day.'
         );
     }
   }, [lang]);
@@ -42,13 +42,13 @@ function App() {
           darkMode ? 'bg-gray-900' : 'bg-white'
         }`}
       >
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-orange-500 border-solid"></div>
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-[#D62E7C] border-solid"></div>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-500">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-pink-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-500">
       <Navbar lang={lang} setLang={setLang} darkMode={darkMode} setDarkMode={setDarkMode} />
       <Home lang={lang} />
       <Footer lang={lang} />

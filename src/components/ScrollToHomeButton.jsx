@@ -31,10 +31,10 @@ const ScrollToHomeButton = ({ lang }) => {
       onClick={scrollToHome}
       className={`
         fixed bottom-6 z-50 
-        ${lang === 'ar' ? 'right-6' : ' left-6'}
-        bg-[#FF7A00] hover:bg-[#e56a00] text-white 
+        ${lang === 'ar' ? 'right-6' : 'left-6'}
+        bg-[#D62E7C] hover:bg-[#c0296b] text-white 
         shadow-xl rounded-full p-3 transition-all duration-300
-        flex items-center justify-center
+        flex items-center justify-center hover:scale-110
       `}
       title={lang === 'ar' ? 'الرجوع للرئيسية' : 'Back to Home'}
     >
