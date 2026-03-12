@@ -1,5 +1,5 @@
 import { Mail, MessageCircle, Instagram, Phone } from 'lucide-react';
-import bg from '../Assets/footer.jpeg';
+import bg from '../Assets/footer.jpg';
 import logo from '../Assets/logodark.png';
 
 const Footer = ({ lang = 'ar' }) => {
