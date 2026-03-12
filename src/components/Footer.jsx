@@ -5,8 +5,8 @@ import logo from '../Assets/logodark.png';
 const Footer = ({ lang = 'ar' }) => {
   const whatsappNumber = '201062485133';
   const phoneNumber = '+20 106 248 5133';
-  const emails = ['support@beautybrand.com'];
-  const instagramHandle = '@beautybrand_official';
+  const emails = ['support@BreatyWomen.com'];
+  const instagramHandle = '@BreatyWomen_official';
 
   const quickLinks = {
     ar: [
@@ -63,11 +63,11 @@ const Footer = ({ lang = 'ar' }) => {
           <div className="flex flex-col items-start">
             <img
               src={logo}
-              alt={lang === 'ar' ? 'لوجو العلامة التجارية' : 'Beauty Brand Logo'}
+              alt={lang === 'ar' ? 'لوجو بريتي ومين' : 'Breaty Women Logo'}
               className="w-16 h-auto mb-2"
             />
             <h3 className="text-3xl text-[#D62E7C] font-bold mt-0 mb-4">
-              {lang === 'ar' ? 'بيوتي براند' : 'Beauty Brand'}
+              {lang === 'ar' ? 'بريتي ومين' : 'Breaty Women'}
             </h3>
             <p className="text-base text-gray-200 leading-relaxed max-w-sm">
               {lang === 'ar'
@@ -124,7 +124,7 @@ const Footer = ({ lang = 'ar' }) => {
             <div className="flex items-center gap-3 text-base mb-3">
               <Instagram className="w-6 h-6 text-[#D62E7C]" />
               <a
-                href="https://instagram.com/beautybrand"
+                href="https://instagram.com/BreatyWomen"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#D62E7C] transition-colors"
@@ -158,8 +158,8 @@ const Footer = ({ lang = 'ar' }) => {
         {/* Footer Bottom */}
         <div className="mt-12 border-t border-white/20 pt-6 text-sm text-gray-300 text-center">
           {lang === 'ar'
-            ? '© 2026 بيوتي براند. جميع الحقوق محفوظة.'
-            : '© 2026 Beauty Brand. All rights reserved.'}
+            ? '© 2026 بريتي ومين. جميع الحقوق محفوظة.'
+            : '© 2026 Breaty Women. All rights reserved.'}
         </div>
       </div>
     </footer>

@@ -17,8 +17,8 @@ const Contact = ({ lang }) => {
 
   const whatsappNumber = '201062485133';
   const phoneNumber = '+20 106 248 5133';
-  const emails = ['support@beautybrand.com'];
-  const instagramHandle = '@beautybrand_official';
+  const emails = ['support@BreatyWomen.com'];
+  const instagramHandle = '@BreatyWomen_official';
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -124,7 +124,7 @@ const Contact = ({ lang }) => {
               <div className="flex items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2">
                 <Instagram className="text-[#D62E7C] flex-shrink-0" size={20} />
                 <a
-                  href="https://instagram.com/beautybrand"
+                  href="https://instagram.com/BreatyWomen"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#D62E7C] transition-colors"

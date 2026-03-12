@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     if (lang === 'ar') {
-      document.title = 'بيوتي براند - جمالك يبدأ من هنا';
+      document.title = 'بريتي ومين';
       document
         .querySelector('meta[name="description"]')
         ?.setAttribute(
@@ -18,7 +18,7 @@ function App() {
           'اكتشفي أفضل مستحضرات التجميل والعناية بالبشرة والشعر. منتجات أصلية بجودة عالية تمنحك الجمال والثقة كل يوم.'
         );
     } else {
-      document.title = 'Beauty Brand - Beauty Starts Here';
+      document.title = 'Breaty Women';
       document
         .querySelector('meta[name="description"]')
         ?.setAttribute(
