@@ -35,28 +35,18 @@ const Projects = ({ lang }) => {
       titleAr: 'مستحضرات المكياج',
       titleEn: 'Makeup Collection',
       icon: <Sparkles className="w-10 h-10 text-[#D62E7C] mb-2" />,
-      cover: require('../Assets/project62.jpg'),
+      cover: require('../Assets/product21.webp'),
       images: [
-        require('../Assets/project49.jpg'),
-        require('../Assets/project50.jpg'),
-        require('../Assets/project51.jpg'),
-        require('../Assets/project52.jpg'),
-        require('../Assets/project53.jpg'),
-        require('../Assets/project54.jpg'),
-        require('../Assets/project55.jpg'),
-        require('../Assets/project56.jpg'),
-        require('../Assets/project57.jpg'),
-        require('../Assets/project58.jpg'),
-        require('../Assets/project59.jpg'),
-        require('../Assets/project60.jpg'),
-        require('../Assets/project61.jpg'),
-        require('../Assets/project62.jpg'),
-        require('../Assets/project63.jpg'),
-        require('../Assets/project64.jpg'),
-        require('../Assets/project65.jpg'),
-        require('../Assets/project66.jpg'),
-        require('../Assets/project67.jpg'),
-        require('../Assets/project68.jpg'),
+        require('../Assets/product1.jpg'),
+        require('../Assets/product2.jpg'),
+        require('../Assets/product3.jpg'),
+        require('../Assets/product4.jpg'),
+        require('../Assets/product5.jpg'),
+        require('../Assets/product6.jpg'),
+        require('../Assets/product7.jpg'),
+        require('../Assets/product8.jpg'),
+        require('../Assets/product9.jpg'),
+        require('../Assets/product10.jpg'),
       ],
     },
     {
@@ -64,56 +54,18 @@ const Projects = ({ lang }) => {
       titleAr: 'منتجات العناية بالبشرة',
       titleEn: 'Skincare Products',
       icon: <Droplet className="w-10 h-10 text-[#D62E7C] mb-2" />,
-      cover: require('../Assets/project11.jpg'),
+      cover: require('../Assets/product22.jpg'),
       images: [
-        require('../Assets/project1.jpg'),
-        require('../Assets/project2.jpg'),
-        require('../Assets/project3.jpg'),
-        require('../Assets/project4.jpg'),
-        require('../Assets/project5.jpg'),
-        require('../Assets/project6.jpg'),
-        require('../Assets/project7.jpg'),
-        require('../Assets/project8.jpg'),
-        require('../Assets/project9.jpg'),
-        require('../Assets/project10.jpg'),
-        require('../Assets/project11.jpg'),
-        require('../Assets/project12.jpg'),
-        require('../Assets/project13.jpg'),
-        require('../Assets/project14.jpg'),
-        require('../Assets/project15.jpg'),
-        require('../Assets/project16.jpg'),
-        require('../Assets/project17.jpg'),
-        require('../Assets/project18.jpg'),
-        require('../Assets/project19.jpg'),
-        require('../Assets/project20.jpg'),
-        require('../Assets/project21.jpg'),
-        require('../Assets/project27.jpg'),
-        require('../Assets/project28.jpg'),
-        require('../Assets/project22.jpg'),
-        require('../Assets/project23.jpg'),
-        require('../Assets/project24.jpg'),
-        require('../Assets/project25.jpg'),
-        require('../Assets/project26.jpg'),
-        require('../Assets/project29.jpg'),
-        require('../Assets/project30.jpg'),
-        require('../Assets/project31.jpg'),
-        require('../Assets/project32.jpg'),
-        require('../Assets/project33.jpg'),
-        require('../Assets/project34.jpg'),
-        require('../Assets/project35.jpg'),
-        require('../Assets/project36.jpg'),
-        require('../Assets/project37.jpg'),
-        require('../Assets/project38.jpg'),
-        require('../Assets/project39.jpg'),
-        require('../Assets/project40.jpg'),
-        require('../Assets/project41.jpg'),
-        require('../Assets/project42.jpg'),
-        require('../Assets/project43.jpg'),
-        require('../Assets/project44.jpg'),
-        require('../Assets/project45.jpg'),
-        require('../Assets/project46.jpg'),
-        require('../Assets/project47.jpg'),
-        require('../Assets/project48.jpg'),
+        require('../Assets/product11.jpg'),
+        require('../Assets/product12.jpg'),
+        require('../Assets/product13.jpg'),
+        require('../Assets/product14.jpg'),
+        require('../Assets/product15.jpg'),
+        require('../Assets/product16.jpg'),
+        require('../Assets/product17.jpg'),
+        require('../Assets/product18.jpg'),
+        require('../Assets/product19.jpg'),
+        require('../Assets/product20.jpg'),
       ],
     },
   ];
@@ -157,7 +109,7 @@ const Projects = ({ lang }) => {
       >
         <div className="container mx-auto px-6 max-w-5xl text-center">
           <h2
-            className={`text-3xl md:text-4xl font-bold text-[#D62E7C] dark:text-pink-400 mb-6 transition-all duration-700 ${
+            className={`text-3xl md:text-4xl font-bold text-[#762B8B] dark:text-pink-400 mb-6 transition-all duration-700 ${
               visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
@@ -186,7 +138,7 @@ const Projects = ({ lang }) => {
               visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            <p className="text-[#D62E7C] dark:text-pink-400 text-xl font-bold mb-2">
+            <p className="text-[#762B8B] dark:text-pink-400 text-xl font-bold mb-2">
               {current.headline}
             </p>
             <span className="block mx-auto mt-2 w-10 h-1 bg-[#D62E7C] rounded-full"></span>
@@ -205,7 +157,7 @@ const Projects = ({ lang }) => {
                   alt={lang === 'ar' ? cat.titleAr : cat.titleEn}
                   className="w-full h-64 object-cover group-hover:opacity-80 transition-opacity duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-pink-900/70 to-pink-600/30 flex flex-col items-center justify-center text-center">
+                <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center">
                   {cat.icon}
                   <span className="text-white font-semibold text-xl mb-2">
                     {lang === 'ar' ? cat.titleAr : cat.titleEn}
@@ -234,12 +186,12 @@ const Projects = ({ lang }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-center px-6 py-4 border-b bg-gradient-to-r from-pink-50 to-white dark:from-gray-800 dark:to-gray-900 sticky top-0 z-10">
-              <h3 className="text-2xl font-bold text-[#D62E7C]">
+              <h3 className="text-2xl font-bold text-[#762B8B]">
                 {lang === 'ar' ? selectedCategory.titleAr : selectedCategory.titleEn}
               </h3>
               <button
                 onClick={closeCategoryModal}
-                className="bg-[#D62E7C] hover:bg-[#c0296b] text-white rounded-full p-2 transition-all"
+                className="bg-[#762B8B] hover:bg-[#5a2269] text-white rounded-full p-2 transition-all"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -256,9 +208,12 @@ const Projects = ({ lang }) => {
                       openZoom(index);
                     }}
                   >
-                    <img src={img} alt="" className="w-full h-48 object-cover" />
-                    <div className="absolute inset-0 bg-[#D62E7C]/0 group-hover/image:bg-[#D62E7C]/20 transition-all duration-300 flex items-center justify-center">
-                      <Eye className="text-white opacity-0 group-hover/image:opacity-100 transition-opacity duration-300" size={30} />
+                    <img src={img} alt="" className="w-full h-48 object-contain" />
+                    <div className="absolute inset-0 bg-[#762B8B]/0 group-hover/image:bg-[#762B8B]/20 transition-all duration-300 flex items-center justify-center">
+                      <Eye
+                        className="text-white opacity-0 group-hover/image:opacity-100 transition-opacity duration-300"
+                        size={30}
+                      />
                     </div>
                   </div>
                 ))}
@@ -289,7 +244,7 @@ const Projects = ({ lang }) => {
                   e.stopPropagation();
                   handlePrev();
                 }}
-                className="absolute left-4 md:left-6 bg-[#D62E7C] hover:bg-[#c0296b] text-white rounded-full p-3 transition-all shadow-lg"
+                className="absolute left-4 md:left-6 bg-[#762B8B] hover:bg-[#5a2269] text-white rounded-full p-3 transition-all shadow-lg"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
@@ -299,7 +254,7 @@ const Projects = ({ lang }) => {
                   e.stopPropagation();
                   handleNext();
                 }}
-                className="absolute right-4 md:right-6 bg-[#D62E7C] hover:bg-[#c0296b] text-white rounded-full p-3 transition-all shadow-lg"
+                className="absolute right-4 md:right-6 bg-[#762B8B] hover:bg-[#5a2269] text-white rounded-full p-3 transition-all shadow-lg"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>

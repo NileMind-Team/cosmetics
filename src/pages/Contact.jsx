@@ -69,7 +69,7 @@ const Contact = ({ lang }) => {
       }`}
     >
       <div className="container mx-auto px-6 max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#D62E7C] dark:text-pink-400 mb-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#762B8B] dark:text-pink-400 mb-6 text-center">
           {lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}
           <span className="block mx-auto mt-2 w-16 h-1 bg-[#D62E7C] rounded-full"></span>
         </h2>
@@ -91,9 +91,7 @@ const Contact = ({ lang }) => {
             <div className="bg-white dark:bg-gray-900 p-6 sm:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 hover:scale-105 w-full border border-pink-100 dark:border-gray-700">
               <div className="flex items-center gap-3 mb-4 transition-transform duration-300 hover:translate-x-2">
                 <MapPin className="text-[#D62E7C] flex-shrink-0" size={20} />
-                <span>
-                  {lang === 'ar' ? 'الفيوم - المحمدية' : 'Fayoum - El Mohamadeya'}
-                </span>
+                <span>{lang === 'ar' ? 'الفيوم - المحمدية' : 'Fayoum - El Mohamadeya'}</span>
               </div>
 
               {/* Phone Number */}
@@ -161,7 +159,7 @@ const Contact = ({ lang }) => {
             }`}
             style={{ transitionDelay: '200ms' }}
           >
-            <h3 className="text-2xl font-semibold text-[#D62E7C] mb-6">
+            <h3 className="text-2xl font-semibold text-[#762B8B] mb-6">
               {lang === 'ar' ? 'أرسلي لنا رسالة' : 'Send us a Message'}
             </h3>
 
@@ -189,8 +187,8 @@ const Contact = ({ lang }) => {
                     required
                     className="w-full border border-gray-300 dark:border-gray-700 
                                rounded-lg px-4 py-3 
-                               focus:outline-none focus:ring-2 focus:ring-[#D62E7C]
-                               transition-all duration-300 hover:border-[#D62E7C]
+                               focus:outline-none focus:ring-2 focus:ring-[#762B8B]
+                               transition-all duration-300 hover:border-[#762B8B]
                                bg-white dark:bg-gray-700
                                text-gray-900 dark:text-white
                                placeholder-gray-400 dark:placeholder-gray-300"
@@ -214,8 +212,8 @@ const Contact = ({ lang }) => {
                   required
                   className="w-full border border-gray-300 dark:border-gray-700 
                              rounded-lg px-4 py-3 
-                             focus:outline-none focus:ring-2 focus:ring-[#D62E7C]
-                             transition-all duration-300 hover:border-[#D62E7C]
+                             focus:outline-none focus:ring-2 focus:ring-[#762B8B]
+                             transition-all duration-300 hover:border-[#762B8B]
                              resize-none
                              bg-white dark:bg-gray-700
                              text-gray-900 dark:text-white
@@ -227,7 +225,7 @@ const Contact = ({ lang }) => {
               <button
                 type="submit"
                 disabled={loading}
-                className="flex items-center justify-center gap-2 w-full bg-[#D62E7C] hover:bg-[#c0296b] text-white font-medium py-3 rounded-full transition-all duration-300 disabled:opacity-70 transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
+                className="flex items-center justify-center gap-2 w-full bg-[#762B8B] hover:bg-[#5a2269] text-white font-medium py-3 rounded-full transition-all duration-300 disabled:opacity-70 transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
               >
                 <Send size={18} />
                 {loading

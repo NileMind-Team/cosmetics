@@ -25,17 +25,20 @@ const About = ({ lang }) => {
         {
           title: 'Our Mission',
           icon: <Sparkles className="w-4 h-4" />,
-          content: 'To empower everyone to express their unique beauty with high-quality, inclusive, and innovative cosmetics.',
+          content:
+            'To empower everyone to express their unique beauty with high-quality, inclusive, and innovative cosmetics.',
         },
         {
           title: 'Our Vision',
           icon: <Feather className="w-4 h-4" />,
-          content: 'To become a globally loved brand that sets new standards in beauty through creativity and sustainability.',
+          content:
+            'To become a globally loved brand that sets new standards in beauty through creativity and sustainability.',
         },
         {
           title: 'Our Values',
           icon: <Heart className="w-4 h-4" />,
-          content: 'Inclusivity, quality, cruelty-free practices, and customer love are at the heart of everything we do.',
+          content:
+            'Inclusivity, quality, cruelty-free practices, and customer love are at the heart of everything we do.',
         },
       ],
       why: [
@@ -60,20 +63,28 @@ const About = ({ lang }) => {
         {
           title: 'رسالتنا',
           icon: <Sparkles className="w-4 h-4" />,
-          content: 'تمكين الجميع من التعبير عن جمالهم الفريد من خلال مستحضرات تجميل عالية الجودة وشاملة ومبتكرة.',
+          content:
+            'تمكين الجميع من التعبير عن جمالهم الفريد من خلال مستحضرات تجميل عالية الجودة وشاملة ومبتكرة.',
         },
         {
           title: 'رؤيتنا',
           icon: <Feather className="w-4 h-4" />,
-          content: 'أن نصبح علامة تجارية محبوبة عالمياً تضع معايير جديدة في عالم الجمال من خلال الإبداع والاستدامة.',
+          content:
+            'أن نصبح علامة تجارية محبوبة عالمياً تضع معايير جديدة في عالم الجمال من خلال الإبداع والاستدامة.',
         },
         {
           title: 'قيمنا',
           icon: <Heart className="w-4 h-4" />,
-          content: 'الشمولية، الجودة، الممارسات الخالية من القسوة على الحيوانات، وحب العملاء هي أساس كل ما نقوم به.',
+          content:
+            'الشمولية، الجودة، الممارسات الخالية من القسوة على الحيوانات، وحب العملاء هي أساس كل ما نقوم به.',
         },
       ],
-      why: ['خالٍ من القسوة ١٠٠٪', 'مكونات عالية الجودة', 'درجات ألوان تناسب الجميع', 'تركيبات مبتكرة'],
+      why: [
+        'خالٍ من القسوة ١٠٠٪',
+        'مكونات عالية الجودة',
+        'درجات ألوان تناسب الجميع',
+        'تركيبات مبتكرة',
+      ],
     },
   };
 
@@ -120,7 +131,7 @@ const About = ({ lang }) => {
     return () => {
       newObservers.forEach((obs) => obs.disconnect());
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [current.why.length]);
 
   return (
@@ -132,7 +143,7 @@ const About = ({ lang }) => {
       }`}
     >
       <div className="container mx-auto px-6 text-center max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#D62E7C] dark:text-pink-400 mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#762B8B] dark:text-pink-400 mb-6">
           {current.title}
           <span className="block mx-auto mt-2 w-16 h-1 bg-[#D62E7C] rounded-full"></span>
         </h2>
@@ -145,7 +156,7 @@ const About = ({ lang }) => {
         <div className="flex flex-col items-start md:items-center gap-2 text-gray-700 dark:text-gray-300 text-sm mb-10">
           {current.services.map((service, index) => (
             <div key={index} className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-[#D62E7C] mt-0.5 flex-shrink-0" />
+              <CheckCircle className="w-4 h-4 text-[#762B8B] mt-0.5 flex-shrink-0" />
               <span>{service}</span>
             </div>
           ))}
@@ -159,7 +170,7 @@ const About = ({ lang }) => {
               onClick={() => setActiveTab(i)}
               className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full border text-sm transition-all duration-300 ${
                 activeTab === i
-                  ? 'bg-[#D62E7C] text-white border-[#D62E7C] scale-105'
+                  ? 'bg-[#762B8B] text-white border-[#762B8B] scale-105'
                   : 'bg-transparent text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-[#D62E7C] dark:hover:border-[#D62E7C] hover:scale-105'
               }`}
             >
@@ -178,7 +189,7 @@ const About = ({ lang }) => {
 
         {/* Why choose us */}
         <div className="mt-8">
-          <h3 className="text-xl font-bold text-[#D62E7C] dark:text-pink-400 mb-4">
+          <h3 className="text-xl font-bold text-[#762B8B] dark:text-pink-400 mb-4">
             {lang === 'ar' ? 'لماذا تختار منتجاتنا؟' : 'Why Choose Us?'}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">

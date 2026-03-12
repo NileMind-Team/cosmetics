@@ -75,7 +75,7 @@ const Navbar = ({ lang, setLang }) => {
   };
 
   return (
-    <header className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white fixed w-full top-0 left-0 z-50 shadow-[0_4px_12px_rgba(214,46,124,0.15)] transition-colors duration-300">
+    <header className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white fixed w-full top-0 left-0 z-50 shadow-[0_4px_12px_rgba(118,43,139,0.15)] transition-colors duration-300">
       <div className="container mx-auto px-3 py-1 flex items-center justify-between h-14 md:h-16">
         {/* Logo */}
         <div className={`flex items-center ${lang === 'ar' ? 'justify-end' : 'justify-start'}`}>
@@ -93,7 +93,7 @@ const Navbar = ({ lang, setLang }) => {
             <button
               key={index}
               onClick={() => handleScroll(link.id)}
-              className="text-[#D62E7C] dark:text-pink-400 hover:text-[#c0296b] transition-all duration-300 relative group py-1"
+              className="text-[#762B8B] dark:text-pink-400 hover:text-[#5a2269] transition-all duration-300 relative group py-1"
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#D62E7C] transition-all duration-300 group-hover:w-full"></span>
@@ -108,15 +108,15 @@ const Navbar = ({ lang, setLang }) => {
             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200"
           >
             {darkMode ? (
-              <Sun size={20} className="text-[#D62E7C]" />
+              <Sun size={20} className="text-[#762B8B]" />
             ) : (
-              <Moon size={20} className="text-[#D62E7C]" />
+              <Moon size={20} className="text-[#762B8B]" />
             )}
           </button>
 
           <button
             onClick={toggleLang}
-            className="bg-[#D62E7C] text-white px-4 py-2 rounded-md text-base hover:bg-[#c0296b] transition duration-200 font-medium flex items-center gap-2"
+            className="bg-[#762B8B] text-white px-4 py-2 rounded-md text-base hover:bg-[#5a2269] transition duration-200 font-medium flex items-center gap-2"
           >
             <Globe size={18} />
             {lang === 'en' ? 'AR' : 'EN'}
@@ -153,7 +153,7 @@ const Navbar = ({ lang, setLang }) => {
                   key={index}
                   onClick={() => handleScroll(link.id)}
                   style={{ transitionDelay: `${index * 80}ms` }}
-                  className="text-[#D62E7C] dark:text-pink-400 hover:text-[#c0296b] transition-all duration-500 font-medium text-lg py-2 px-3 relative group text-left rtl:text-right"
+                  className="text-[#762B8B] dark:text-pink-400 hover:text-[#5a2269] transition-all duration-500 font-medium text-lg py-2 px-3 relative group text-left rtl:text-right"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#D62E7C] transition-all duration-500 group-hover:w-full rtl:left-auto rtl:right-0"></span>
@@ -168,9 +168,9 @@ const Navbar = ({ lang, setLang }) => {
                 className="flex items-center justify-center gap-2 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300 flex-1"
               >
                 {darkMode ? (
-                  <Sun size={20} className="text-[#D62E7C]" />
+                  <Sun size={20} className="text-[#762B8B]" />
                 ) : (
-                  <Moon size={20} className="text-[#D62E7C]" />
+                  <Moon size={20} className="text-[#762B8B]" />
                 )}
                 <span className="text-base font-medium text-gray-700 dark:text-gray-300">
                   {darkMode ? (lang === 'en' ? 'Light' : 'فاتح') : lang === 'en' ? 'Dark' : 'داكن'}
@@ -179,7 +179,7 @@ const Navbar = ({ lang, setLang }) => {
 
               <button
                 onClick={toggleLang}
-                className="flex items-center justify-center gap-2 bg-[#D62E7C] text-white px-4 py-3 rounded-lg hover:bg-[#c0296b] transition duration-300 font-medium text-base flex-1"
+                className="flex items-center justify-center gap-2 bg-[#762B8B] text-white px-4 py-3 rounded-lg hover:bg-[#5a2269] transition duration-300 font-medium text-base flex-1"
               >
                 <Globe size={18} />
                 {lang === 'en' ? 'AR' : 'EN'}
