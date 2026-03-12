@@ -86,17 +86,17 @@ const Services = ({ lang }) => {
       description: 'اكتشفي مجموعتنا من خدمات التجميل الاحترافية المصممة لإبراز إشراقتك الطبيعية.',
       items: [
         {
-          icon: <Sparkles className="w-12 h-12 text-[#762B8B] mx-auto mb-4" />,
+          icon: <Sparkles className="w-12 h-12 text-[#D62E7C] mx-auto mb-4" />,
           title: 'فن المكياج',
           desc: 'خدمات مكياج احترافية لجميع المناسبات، من الإطلالات الطبيعية إلى التحولات الساحرة.',
         },
         {
-          icon: <Droplet className="w-12 h-12 text-[#762B8B] mx-auto mb-4" />,
+          icon: <Droplet className="w-12 h-12 text-[#D62E7C] mx-auto mb-4" />,
           title: 'علاجات البشرة',
           desc: 'علاجات وجه متقدمة وروتين عناية بالبشرة مصمم خصيصاً لنوع بشرتك.',
         },
         {
-          icon: <Heart className="w-12 h-12 text-[#762B8B] mx-auto mb-4" />,
+          icon: <Heart className="w-12 h-12 text-[#D62E7C] mx-auto mb-4" />,
           title: 'استشارات تجميل',
           desc: 'استشارات تجميل شخصية لمساعدتك في اختيار المنتجات المثالية لاحتياجاتك.',
         },
