@@ -35,7 +35,7 @@ const Projects = ({ lang }) => {
       titleAr: 'مستحضرات المكياج',
       titleEn: 'Makeup Collection',
       icon: <Sparkles className="w-10 h-10 text-[#D62E7C] mb-2" />,
-      cover: require('../Assets/project62.jpg'), // You'll need to update these paths with actual beauty product images
+      cover: require('../Assets/project62.jpg'),
       images: [
         require('../Assets/project49.jpg'),
         require('../Assets/project50.jpg'),
@@ -64,7 +64,7 @@ const Projects = ({ lang }) => {
       titleAr: 'منتجات العناية بالبشرة',
       titleEn: 'Skincare Products',
       icon: <Droplet className="w-10 h-10 text-[#D62E7C] mb-2" />,
-      cover: require('../Assets/project11.jpg'), // You'll need to update these paths with actual beauty product images
+      cover: require('../Assets/project11.jpg'),
       images: [
         require('../Assets/project1.jpg'),
         require('../Assets/project2.jpg'),
